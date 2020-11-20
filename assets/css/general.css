@@ -1,0 +1,347 @@
+/* Color */
+/* $ebony: #545c52ff;
+$old-lace: #f7f3e3ff;
+$denim-blue: #3943b7ff;
+$carolina-blue: #009ddcff;
+$outrageous-orange: #ff785aff; */
+/* End Color */
+/* Responsive */
+@media screen and (min-width:992px) {
+
+    /* Dekstop */
+    .navbar {
+        background-color: #FFFF !important;
+        z-index: 100;
+    }
+
+    .jumbotron {
+        top: -14.7vh;
+        background-position: -59vh 16vh;
+        background-size: 130vh;
+        overflow: hidden;
+    }
+
+    .navbar-nav .nav-item,
+    .navbar-nav .active {
+        width: 15vh;
+    }
+
+    .jumbotron .container-fluid {
+        position: absolute;
+        width: 100%;
+        top: 17vh;
+        left: 33vh;
+    }
+
+    .navbar .lp img{
+        width: 24%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+    /*tampilan tablet*/
+    /* .jumbotron .container-fluid .banner {
+        background-color: #7432FF !important;
+        height: auto !important;
+        background-position: center center;
+        background-size: cover;
+        overflow: hidden;
+    }
+    
+
+    .navbar .lp img{
+        width: 15vh !important;
+    } */
+
+    .navbar {
+        background-color: white !important;
+        z-index: 100;
+        position: absolute;
+        width: 100%;
+    }
+
+    .jumbotron {
+        top: 0vh;
+        background-position: -19vh 46vh;
+        background-size: 80vh;
+    }
+
+    .navbar-nav .nav-item,
+    .navbar-nav .active {
+        margin: 2vh 0vh !important;
+        width: 100%;
+    }
+
+    .navbar-nav {
+        padding: 2vh !important;
+    }
+
+    .jumbotron .container-fluid {
+        position: absolute;
+        width: 100%;
+        top: 10vh;
+        left: 0vh;
+    }
+
+    .jumbotron .container-fluid .banner {
+        height: auto !important;
+    }
+
+    .navbar .lp img{
+        width: 15vh !important;
+    }
+}
+
+@media screen and (max-width:768px) {
+
+    /* Mobile */
+    .navbar {
+        background-color: white !important;
+        z-index: 100;
+        position: absolute;
+        width: 100%;
+    }
+
+    .jumbotron {
+        top: 0vh;
+        background-position: -35vh 46vh;
+        background-size: 80vh;
+    }
+
+    .navbar-nav .nav-item,
+    .navbar-nav .active {
+        margin: 2vh 0vh !important;
+        width: 100%;
+    }
+
+    .navbar-nav {
+        padding: 2vh !important;
+    }
+
+    .jumbotron .container-fluid {
+        position: absolute;
+        width: 100%;
+        top: 20vh;
+        left: 0vh;
+    }
+
+    .jumbotron .container-fluid .banner {
+        height: auto !important;
+    }
+
+    .navbar .lp img{
+        width: 25vh !important;
+    }
+}
+
+/* END RESPONSIF */
+
+/* strucktur html */
+body {
+    background-color: #FAFAFA !important;
+}
+
+/* strucktur html */
+/* ALL BUTTON */
+.btn {
+    border-radius: 10px;
+    border: 3px solid #333;
+    box-shadow: 0rem 0.4rem 1px #555;
+    font-family: arca-heavy;
+}
+
+.btn:hover {
+    position: relative;
+    border: 3px solid #333;
+    box-shadow: 0rem 0.2rem 1px #555;
+    top: 0.2rem;
+    transition: none !important;
+}
+
+.btn-x{
+    width: 100%;
+}
+
+.btn-l{
+    width: 50%;
+}
+
+.btn-s{
+    width: 25%;
+}
+
+.btn-orange {
+    color: #FFFF;
+    background-color: #FF7A00;
+}
+
+.btn-orange:hover {
+    color: #FFFF;
+}
+
+.btn-violet {
+    color: #FFFF;
+    background-color: #7432FF;
+}
+
+.btn-violet:hover {
+    color: #FFFF;
+}
+
+.btn-cream {
+    background-color: #FFDE6A;
+}
+
+.btn-white {
+    background-color: #FFFF !important;
+    color: #FFFF;
+}
+
+.btn-red {
+    background-color: #E55353;
+    color: #FFFF;
+}
+
+.btn-red:hover {
+    color: #FFFF;
+}
+
+/* btn toska */
+.btn-green {
+    color: #FFFF;
+    background-color: #1ABF9B;
+}
+
+.btn-green:hover {
+    color: #FFFF;
+}
+
+.btn-light-green {
+    color: #FFFF;
+    background-color: #A6EADA;
+    color: #1ABF9B;
+}
+
+.btn-light-green:hover {
+    color: #FFFF;
+}
+
+.btn-light-blue {
+    background-color: #009ddcff;
+    color: #F7F3E3;
+}
+
+/* btn toska */
+
+/* Ukuran */
+.penuh {
+    width: 50%;
+}
+
+.setengah {
+    width: 50%;
+}
+
+.seperempat {
+    width: 25%;
+}
+
+.tigaperemat {
+    width: 75%;
+}
+
+/* Ukuran */
+
+/* END ALL BUTTON */
+
+/* Index Landing Page */
+
+.jumbotron {
+    position: relative;
+    /* background-image: url(../media/error/agency-2.jpg) !important; */
+    background-image: url(../media/svg/illustrations/data-points.svg) !important;
+    background-color: #FAFAFA !important;
+    background-repeat: no-repeat;
+    color: #FFFF !important;
+    font-family: arca-heavy;
+    height: 100vh;
+}
+
+.jumbotron .container-fluid .banner {
+    background-color: #FFFF;
+    color: #FFFF !important;
+    box-shadow: 0rem 0.6rem 1px #333;
+    height: auto;
+    border-radius: 5vh;
+    border: 3px solid #333 !important;
+    padding: 0vh 0vh 0vh;
+    overflow: hidden;
+}
+
+.jumbotron .container-fluid .banner .carousel-item .carousel-caption {
+    font-family: arca-heavy;
+    color: #333 !important;
+    position: absolute;
+    top: 20vh;
+    left: -40vh;
+}
+
+
+.navbar-nav {
+    padding: 3vh 0vh 0vh;
+}
+
+.navbar-nav .nav-item {
+    font-family: arca-heavy;
+    font-size: 20px;
+    text-align: center;
+    background-color: #f95738; 
+    color: #FFFF !important;
+    margin: 2vh 3vh;
+    padding: 1vh 0vh;
+    border-radius: 1vh;
+    box-shadow: 0rem 0.4rem 1px #555;
+    border: 3px solid #333 !important;
+}
+
+.navbar-nav .active {
+    font-family: arca-heavy;
+    text-align: center;
+    background-color: #ffffff;
+    color: #000000 !important;
+    margin: 2h 3vh;
+    padding: 1vh 0vh;
+    /* width: 15vh; */
+    border-radius: 1vh;
+    box-shadow: 0rem 0.2rem 1px #555;
+    border: 3px solid #333 !important;
+}
+
+.navbar-nav a:hover {
+    position: relative;
+    border: 3px solid #333;
+    box-shadow: 0rem 0.2rem 1px #555;
+    top: 0.2rem;
+    transition: none !important;
+}
+.navbar-nav .active:hover {
+    position: relative;
+    top: 0rem;
+    transition: none !important;
+}
+
+/* Index Landing Page */
+
+/* Form Input */
+.form-control {
+    border: 3px solid #333 !important;
+    box-shadow: 0rem 0.4rem 1px #555;
+}
+
+.form-control:focus {
+    border: 3px solid #333 !important;
+    box-shadow: 0rem 0.4rem 1px #555;
+}
+
+/* Form Input */

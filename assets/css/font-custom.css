@@ -1,0 +1,29 @@
+@font-face {
+    font-family: Filipi;
+    src: url(../plugins/global/fonts/custom/FilipiFont.otf);
+}
+
+@font-face {
+    font-family: Little-Orion;
+    src: url(../plugins/global/fonts/custom/Little\ Orion\ -\ Personal\ Use.otf);
+}
+
+@font-face {
+    font-family: Asleepy;
+    src: url(../plugins/global/fonts/custom/Asleepytiming.otf);
+}
+
+@font-face {
+    font-family: Man;
+    src: url(../plugins/global/fonts/custom/Manchester.ttf);
+}
+
+/* Font Arca-majoro */
+@font-face {
+    font-family: arca-bold;
+    src: url(../plugins/global/fonts/custom/arca-majoro/ArcaMajora3-Bold.otf);
+}
+@font-face {
+    font-family: arca-heavy;
+    src: url(../plugins/global/fonts/custom/arca-majoro/ArcaMajora3-Heavy.otf);
+}

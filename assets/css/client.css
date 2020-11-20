@@ -1,0 +1,60 @@
+/* #kt_aside{
+    background-color: #31D8B1 !important;
+    color: #A6EADA !important;
+}
+.active{
+    background-color: #31D8B1 !important;
+}
+
+.aside .btn.btn-icon .svg-icon svg g [fill]{
+    fill: #1ABF9B;
+}
+
+.nav-item .btn.btn-icon .svg-icon svg g .active [fill]{
+    fill: #1ABF9B;
+}
+
+.btn-icon{
+    color: #A6EADA !important;
+    background-color: #A6EADA !important;
+}
+.svg-icon{
+    color: #A6EADA !important;
+} */
+
+/* button */
+.btn-pj{
+    width: 100%;
+    border-radius: 10px;
+    border: 3px solid #333;
+    box-shadow: 0rem 0.4rem 1px #555;
+}
+.btn-pj:hover{
+    top: 0.2rem;
+    box-shadow: 0rem 0.2rem 1px #555;
+}
+
+.btn-md{
+    width: 40%;
+    border-radius: 10px;
+    border: 3px solid #333;
+    box-shadow: 0rem 0.4rem 1px #555;
+}
+.btn-md:hover{
+    position: relative;
+    top: 0.2rem;
+    box-shadow: 0rem 0.2rem 1px #555;
+}
+.btn-pj:hover {
+    position: relative;
+    border: 3px solid #333;
+    box-shadow: 0rem 0.2rem 1px #555;
+    top: 0.2rem;
+    transition: none !important;
+}
+/* button */
+
+.s-avatar{
+    border-radius: 20vh !important;
+    overflow: hidden;
+}
