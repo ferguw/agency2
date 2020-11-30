@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  include('session_check.php');
+?>
 <!--
 Template Name: Metronic - Bootstrap 4 HTML, React, Angular 9 & VueJS Admin Dashboard Theme
 Author: KeenThemes
@@ -17,7 +21,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <head>
     <base href="../">
     <meta charset="utf-8" />
-    <title>Client | Dashboard</title>
+    <title>client | Dashboard</title>
     <meta name="description" content="Updates and statistics" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -26,11 +30,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--end::Fonts-->
 
     <!--begin::Page Vendors Styles(used by this page)-->
-    <link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css?v=7.0.6" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/custom/leaflet/leaflet.bundle.css?v=7.0.6" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-        crossorigin="" />
+    <link href="assets/css/pages/wizard/wizard-1.css?v=7.0.6" rel="stylesheet" type="text/css" />
     <!--end::Page Vendors Styles-->
 
 
@@ -38,7 +38,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="assets/plugins/global/plugins.bundle.css?v=7.0.6" rel="stylesheet" type="text/css" />
     <link href="assets/plugins/custom/prismjs/prismjs.bundle.css?v=7.0.6" rel="stylesheet" type="text/css" />
     <link href="assets/css/style.bundle.css?v=7.0.6" rel="stylesheet" type="text/css" />
-    <link href="assets/css/talent.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/client.css" rel="stylesheet" type="text/css" />
     <!--end::Global Theme Styles-->
 
     <!--begin::Layout Themes(used by all pages)-->
@@ -421,42 +421,23 @@ License: You must have a valid license purchased only from themeforest(the above
                                     class="header-menu header-menu-mobile  header-menu-layout-default ">
                                     <!--begin::Nav-->
                                     <ul class="menu-nav ">
-                                        <li class="menu-item  menu-item-submenu menu-item-rel"><a href="client"
-                                                class="menu-link "><span class="menu-text">Dashboard</span></a>
+                                        <li class="menu-item menu-item-submenu menu-item-rel">
+                                            <a href="client" class="menu-link "><span
+                                                    class="menu-text">Dashboard</span></a>
                                         </li>
-                                        <li class="menu-item  menu-item-submenu menu-item-rel" data-menu-toggle="click"
-                                            aria-haspopup="true"><a href="javascript:;"
-                                                class="menu-link menu-toggle"><span class="menu-text">Job</span><span
-                                                    class="menu-desc"></span><i class="menu-arrow"></i></a>
-                                            <div class="menu-submenu menu-submenu-classic menu-submenu-left">
-                                                <ul class="menu-subnav">
-                                                    <li class="menu-item menu-item-active" data-menu-toggle="hover"
-                                                        aria-haspopup="true">
-                                                        <a href="client/tawaran-job" class="menu-link">
-                                                            <span class="menu-text">Tawaran</span>
-                                                        </a>
-
-                                                    </li>
-                                                    <li class="menu-item menu-item-submenu" data-menu-toggle="hover"
-                                                        aria-haspopup="true">
-                                                        <a href="client/list-job" class="menu-link">
-                                                            <span class="menu-text">List Job</span>
-                                                        </a>
-
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                        <li
+                                            class="menu-item menu-item-submenu menu-item-rel menu-item-open menu-item-here">
+                                            <a href="client/list-project" class="menu-link "><span
+                                                    class="menu-text">Project</span></a>
                                         </li>
 
-                                        <li class="menu-item  menu-item-open menu-item-here menu-item-submenu menu-item-rel menu-item-open menu-item-here"
-                                            data-menu-toggle="click" aria-haspopup="true"><a href="javascript:;"
-                                                class="menu-link menu-toggle"><span class="menu-text">Report</span><span
-                                                    class="menu-desc"></span><i class="menu-arrow"></i></a>
-
+                                        <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click"
+                                            aria-haspopup="true"><a href="client/report-job" class="menu-link"><span
+                                                    class="menu-text">Report</span><span class="menu-desc"></span><i
+                                                    class="menu-arrow"></i></a>
                                         </li>
-                                        <li class="menu-item  menu-item-submenu" data-menu-toggle="click"
-                                            aria-haspopup="true"><a href="javascript:;"
-                                                class="menu-link menu-toggle"><span
+                                        <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click"
+                                            aria-haspopup="true"><a href="client/history" class="menu-link"><span
                                                     class="menu-text">History</span><span class="menu-desc"></span><i
                                                     class="menu-arrow"></i></a>
                                         </li>
@@ -479,473 +460,283 @@ License: You must have a valid license purchased only from themeforest(the above
 
                 <!--begin::Content-->
                 <div class="content  d-flex flex-column flex-column-fluid" id="kt_content">
-
                     <!--begin::Entry-->
                     <div class="d-flex flex-column-fluid">
                         <!--begin::Container-->
-                        <div class=" container ">
-                            <!--begin::Dashboard-->
-                            <!-- begin::tittle -->
-                            <div class="row">
-                                <div class="col-12 mt-5 text-center">
-                                    <h1>SEMINAR SUKSES BERSAMA</h1>
-                                </div>
-                            </div>
-                            <!-- end::tittle -->
-                            <!-- detail job -->
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <!--begin::Card-->
-                                            <div class="card card-custom gutter-b">
-                                                <div class="card-body">
-                                                    <div class="d-flex">
-                                                        <!--begin: Pic-->
-                                                        <div class="flex-shrink-0 mr-7 mt-lg-0 mt-3">
-                                                            <div class="symbol symbol-50 symbol-lg-120">
-                                                                <img alt="Pic" src="assets/media/project-logos/3.png" />
-                                                            </div>
-
-                                                            <div
-                                                                class="symbol symbol-50 symbol-lg-120 symbol-primary d-none">
-                                                                <span
-                                                                    class="font-size-h3 symbol-label font-weight-boldest">JM</span>
-                                                            </div>
+                        <div class=" container-fluid ">
+                            <!--begin::Card-->
+                            <div class="card card-custom">
+                                <div class="card-body p-0">
+                                    <div class="wizard wizard-1" id="kt_projects_add" data-wizard-state="step-first"
+                                        data-wizard-clickable="true">
+                                        <div class="kt-grid__item">
+                                            <!--begin::Wizard Nav-->
+                                            <div class="wizard-nav border-bottom">
+                                                <div class="wizard-steps p-8 p-lg-10">
+                                                    <div class="wizard-step" data-wizard-type="step"
+                                                        data-wizard-state="current">
+                                                        <div class="wizard-label">
+                                                            <span class="svg-icon svg-icon-4x wizard-icon">
+                                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Chat-check.svg--><svg
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                    width="24px" height="24px" viewBox="0 0 24 24"
+                                                                    version="1.1">
+                                                                    <g stroke="none" stroke-width="1" fill="none"
+                                                                        fill-rule="evenodd">
+                                                                        <rect x="0" y="0" width="24" height="24" />
+                                                                        <path
+                                                                            d="M4.875,20.75 C4.63541667,20.75 4.39583333,20.6541667 4.20416667,20.4625 L2.2875,18.5458333 C1.90416667,18.1625 1.90416667,17.5875 2.2875,17.2041667 C2.67083333,16.8208333 3.29375,16.8208333 3.62916667,17.2041667 L4.875,18.45 L8.0375,15.2875 C8.42083333,14.9041667 8.99583333,14.9041667 9.37916667,15.2875 C9.7625,15.6708333 9.7625,16.2458333 9.37916667,16.6291667 L5.54583333,20.4625 C5.35416667,20.6541667 5.11458333,20.75 4.875,20.75 Z"
+                                                                            fill="#000000" fill-rule="nonzero"
+                                                                            opacity="0.3" />
+                                                                        <path
+                                                                            d="M2,11.8650466 L2,6 C2,4.34314575 3.34314575,3 5,3 L19,3 C20.6568542,3 22,4.34314575 22,6 L22,15 C22,15.0032706 21.9999948,15.0065399 21.9999843,15.009808 L22.0249378,15 L22.0249378,19.5857864 C22.0249378,20.1380712 21.5772226,20.5857864 21.0249378,20.5857864 C20.7597213,20.5857864 20.5053674,20.4804296 20.317831,20.2928932 L18.0249378,18 L12.9835977,18 C12.7263047,14.0909841 9.47412135,11 5.5,11 C4.23590829,11 3.04485894,11.3127315 2,11.8650466 Z M6,7 C5.44771525,7 5,7.44771525 5,8 C5,8.55228475 5.44771525,9 6,9 L15,9 C15.5522847,9 16,8.55228475 16,8 C16,7.44771525 15.5522847,7 15,7 L6,7 Z"
+                                                                            fill="#000000" />
+                                                                    </g>
+                                                                </svg>
+                                                                <!--end::Svg Icon--></span>
+                                                            <h3 class="wizard-title">Project Details</h3>
                                                         </div>
-                                                        <!--end: Pic-->
 
-                                                        <!--begin: Info-->
-                                                        <div class="flex-grow-1">
-                                                            <!--begin: Title-->
-                                                            <div
-                                                                class="d-flex align-items-center justify-content-between flex-wrap">
-                                                                <div class="mr-3">
-                                                                    <!--begin::Name-->
-                                                                    <h5
-                                                                        class="d-flex align-items-center text-dark text-hover-primary font-size-h5 font-weight-bold mr-3">
-                                                                        PT. Lipsum <i
-                                                                            class="flaticon2-correct text-success icon-md ml-2"></i>
-                                                                    </h5>
-                                                                    <!--end::Name-->
-
-                                                                    <!--begin::Contacts-->
-                                                                    <div class="d-flex flex-wrap my-2">
-                                                                        <a href="#"
-                                                                            class="text-muted text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2">
-                                                                            <span
-                                                                                class="svg-icon svg-icon-md svg-icon-gray-500 mr-1">
-                                                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Mail-notification.svg--><svg
-                                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                                    width="24px" height="24px"
-                                                                                    viewBox="0 0 24 24" version="1.1">
-                                                                                    <g stroke="none" stroke-width="1"
-                                                                                        fill="none" fill-rule="evenodd">
-                                                                                        <rect x="0" y="0" width="24"
-                                                                                            height="24" />
-                                                                                        <path
-                                                                                            d="M21,12.0829584 C20.6747915,12.0283988 20.3407122,12 20,12 C16.6862915,12 14,14.6862915 14,18 C14,18.3407122 14.0283988,18.6747915 14.0829584,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,12.0829584 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"
-                                                                                            fill="#000000" />
-                                                                                        <circle fill="#000000"
-                                                                                            opacity="0.3" cx="19.5"
-                                                                                            cy="17.5" r="2.5" />
-                                                                                    </g>
-                                                                                </svg>
-                                                                                <!--end::Svg Icon--></span>
-                                                                            jason@siastudio.com
-                                                                        </a>
-                                                                        <a href="#"
-                                                                            class="text-muted text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2">
-                                                                            <span
-                                                                                class="svg-icon svg-icon-md svg-icon-gray-500 mr-1">
-                                                                                <!--begin::Svg Icon | path:assets/media/svg/icons/General/Lock.svg--><svg
-                                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                                    width="24px" height="24px"
-                                                                                    viewBox="0 0 24 24" version="1.1">
-                                                                                    <g stroke="none" stroke-width="1"
-                                                                                        fill="none" fill-rule="evenodd">
-                                                                                        <mask fill="white">
-                                                                                            <use xlink:href="#path-1" />
-                                                                                        </mask>
-                                                                                        <g />
-                                                                                        <path
-                                                                                            d="M7,10 L7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 L17,10 L18,10 C19.1045695,10 20,10.8954305 20,12 L20,18 C20,19.1045695 19.1045695,20 18,20 L6,20 C4.8954305,20 4,19.1045695 4,18 L4,12 C4,10.8954305 4.8954305,10 6,10 L7,10 Z M12,5 C10.3431458,5 9,6.34314575 9,8 L9,10 L15,10 L15,8 C15,6.34314575 13.6568542,5 12,5 Z"
-                                                                                            fill="#000000" />
-                                                                                    </g>
-                                                                                </svg>
-                                                                                <!--end::Svg Icon--></span> PR Manager
-                                                                        </a>
-                                                                        <a href="#"
-                                                                            class="text-muted text-hover-primary font-weight-bold">
-                                                                            <span
-                                                                                class="svg-icon svg-icon-md svg-icon-gray-500 mr-1">
-                                                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Map/Marker2.svg--><svg
-                                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                                    width="24px" height="24px"
-                                                                                    viewBox="0 0 24 24" version="1.1">
-                                                                                    <g stroke="none" stroke-width="1"
-                                                                                        fill="none" fill-rule="evenodd">
-                                                                                        <rect x="0" y="0" width="24"
-                                                                                            height="24" />
-                                                                                        <path
-                                                                                            d="M9.82829464,16.6565893 C7.02541569,15.7427556 5,13.1079084 5,10 C5,6.13400675 8.13400675,3 12,3 C15.8659932,3 19,6.13400675 19,10 C19,13.1079084 16.9745843,15.7427556 14.1717054,16.6565893 L12,21 L9.82829464,16.6565893 Z M12,12 C13.1045695,12 14,11.1045695 14,10 C14,8.8954305 13.1045695,8 12,8 C10.8954305,8 10,8.8954305 10,10 C10,11.1045695 10.8954305,12 12,12 Z"
-                                                                                            fill="#000000" />
-                                                                                    </g>
-                                                                                </svg>
-                                                                                <!--end::Svg Icon--></span> Melbourne
-                                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end::Wizard Nav-->
+                                        </div>
+                                        <div class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10">
+                                            <div class="col-xl-12 col-xxl-7">
+                                                <!--begin::Form Wizard-->
+                                                <form class="form" action="client/add-project-cekout" id="kt_projects_add_form">
+                                                    <!--begin::Step 1-->
+                                                    <div class="pb-5" data-wizard-type="step-content"
+                                                        data-wizard-state="current">
+                                                        <div class="row">
+                                                            <div class="col-xl-12">
+                                                                <div class="form-group row">
+                                                                    <label
+                                                                        class="col-xl-3 col-lg-3 col-form-label">Project
+                                                                        Name</label>
+                                                                    <div class="col-lg-9 col-xl-9">
+                                                                        <input
+                                                                            class="form-control form-control-lg form-control-solid"
+                                                                            name="projectname" required
+                                                                            placeholder="Project Name" autocomplete="off" type="text">
                                                                     </div>
-                                                                    <!--end::Contacts-->
                                                                 </div>
-                                                            </div>
-                                                            <!--end: Title-->
-
-                                                            <!--begin: Content-->
-                                                            <div
-                                                                class="d-flex align-items-center flex-wrap justify-content-between">
-                                                                <div class="d-flex flex-wrap align-items-center py-2">
-                                                                    <div class="d-flex align-items-center mr-10">
-                                                                        <div class="mr-6">
-                                                                            <div class="font-weight-bold mb-2">Start
-                                                                                Date</div>
-                                                                            <span
-                                                                                class="btn btn-sm btn-text btn-light-primary text-uppercase font-weight-bold">04
-                                                                                June, 2020</span>
-                                                                        </div>
-                                                                        <div class="">
-                                                                            <div class="font-weight-bold mb-2">Due Date
+                                                                <div class="form-group row">
+                                                                    <label
+                                                                        class="col-xl-3 col-lg-3 col-form-label">Project
+                                                                        Description</label>
+                                                                    <div class="col-lg-9 col-xl-9">
+                                                                        <textarea name="projectdescription" required
+                                                                            placeholder="Description"
+                                                                            class="form-control form-control-lg form-control-solid"
+                                                                            rows="8" cols="80"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label
+                                                                        class="col-xl-3 col-lg-3 col-form-label">Contact
+                                                                        Phone</label>
+                                                                    <div class="col-lg-9 col-xl-9">
+                                                                        <div
+                                                                            class="input-group input-group-lg input-group-solid">
+                                                                            <div class="input-group-prepend"><span
+                                                                                    class="input-group-text"><i
+                                                                                        class="la la-phone"></i></span>
                                                                             </div>
-                                                                            <span
-                                                                                class="btn btn-sm btn-text btn-light-danger text-uppercase font-weight-bold">10
-                                                                                June, 2021</span>
+                                                                            <input type="tel"
+                                                                                class="form-control form-control-lg form-control-solid"
+                                                                                name="phone" required
+                                                                                placeholder="081234567890" title="Input 12 Digit Phone Number"
+                                                                                pattern="[0-9]{12}" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <div class="form-group row">
+                                                                    <label
+                                                                        class="col-xl-3 col-lg-3 col-form-label">Email
+                                                                        Address</label>
+                                                                    <div class="col-lg-9 col-xl-9">
+                                                                        <div
+                                                                            class="input-group input-group-lg input-group-solid">
+                                                                            <div class="input-group-prepend"><span
+                                                                                    class="input-group-text"><i
+                                                                                        class="la la-at"></i></span>
+                                                                            </div>
+                                                                            <input type="email"
+                                                                                class="form-control form-control-lg form-control-solid"
+                                                                                name="email" required autocomplete="off"
+                                                                                placeholder="example@mail.com" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label
+                                                                        class="col-xl-3 col-lg-3 col-form-label">Company
+                                                                        Website</label>
+                                                                    <div class="col-lg-9 col-xl-9">
+                                                                        <input
+                                                                            class="form-control form-control-lg form-control-solid"
+                                                                            name="companywebsite" type="url"
+                                                                            placeholder="http://example.com">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label
+                                                                        class="col-xl-3 col-lg-3 col-form-label">Address</label>
+                                                                    <div class="col-lg-9 col-xl-9">
+                                                                        <input
+                                                                            class="form-control form-control-lg form-control-solid"
+                                                                            name="address" required
+                                                                            placeholder="Jl. Utara" type="text">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label
+                                                                        class="col-xl-3 col-lg-3 col-form-label">City</label>
+                                                                    <div class="col-lg-9 col-xl-9">
+                                                                        <select name="city" required
+                                                                            class="form-control form-control-lg form-control-solid">
+                                                                            <option disabled value="">Select City
+                                                                            </option>
+                                                                            <option value="Banjarmasin">Banjarmasin
+                                                                            </option>
+                                                                            <option value="Banjarbaru">Banjarbaru
+                                                                            </option>
+                                                                            <option value="Banjar">Banjar</option>
+                                                                            <option value="Barito Kuala">Barito Kuala
+                                                                            </option>
+                                                                            <option value="Balangan">Balangan</option>
+                                                                            <option value="Hulu Sungai Utara">Hulu
+                                                                                Sungai Utara</option>
+                                                                            <option value="Hulu Sungai Tengah">Hulu
+                                                                                Sungai Tengah</option>
+                                                                            <option value="Hulu Sungai Selatan">Hulu
+                                                                                Sungai Selatan</option>
+                                                                            <option value="Kotabaru">Kotabaru</option>
+                                                                            <option value="Tabalong">Tabalong</option>
+                                                                            <option value="Tanah Bumbu">Tanah Bumbu
+                                                                            </option>
+                                                                            <option value="Tanah Laut">Tanah Laut
+                                                                            </option>
+                                                                            <option value="Tapin">Tapin</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-xl-3 col-lg-3 col-form-label">Maps
+                                                                        Coordinates</label>
+                                                                    <div class="col-lg-9 col-xl-9">
+                                                                        <input
+                                                                            class="form-control form-control-lg form-control-solid"
+                                                                            name="location" required type="text" autocomplete="off"
+                                                                            placeholder="-3.3187897349614994, 114.59119085304802">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <label class="col-xl-3 col-lg-3 col-form-label">Periode</label>
+                                                                    <div class="col-xl-4">
+                                                                        <div class="form-group">
+                                                                            <Label>Date & Time Start</Label>
+                                                                            <input
+                                                                                class="form-control form-control-lg form-control-solid"
+                                                                                name="dtstart" required autocomplete="off"
+                                                                                type="datetime-local">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xl-4">
+                                                                        <div class="form-group">
+                                                                            <Label>Date & Time End</Label>
+                                                                            <input
+                                                                                class="form-control form-control-lg form-control-solid"
+                                                                                name="dtend" required autocomplete="off"
+                                                                                type="datetime-local">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-xl-3 col-lg-3 col-form-label">Work
+                                                                        Day</label>
+                                                                    <div class="col-lg-9 col-xl-9">
+                                                                        <input
+                                                                            class="form-control form-control-lg form-control-solid"
+                                                                            name="workday" placeholder="Senin - Jumat" autocomplete="off"
+                                                                            required type="text">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label
+                                                                        class="col-xl-3 col-lg-3 col-form-label">Number
+                                                                        of Days</label>
+                                                                    <div class="col-lg-9 col-xl-9">
+                                                                        <input
+                                                                            class="form-control form-control-lg form-control-solid"
+                                                                            name="numday" placeholder="10" required autocomplete="off"
+                                                                            type="number" min="0">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label
+                                                                        class="col-xl-3 col-lg-3 col-form-label">Salary
+                                                                        Per Day</label>
+                                                                    <div class="col-lg-9 col-xl-9">
+                                                                        <div
+                                                                            class="input-group input-group-lg input-group-solid">
+                                                                            <div class="input-group-prepend"><span
+                                                                                    class="input-group-text"><i
+                                                                                        class="la">Rp</i></span>
+                                                                            </div>
+                                                                            <input type="number"
+                                                                                class="form-control form-control-lg form-control-solid"
+                                                                                name="salary" required autocomplete="off"
+                                                                                placeholder="1000000" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label
+                                                                        class="col-xl-3 col-lg-3 col-form-label">Amount
+                                                                        of Talents</label>
+                                                                    <div class="col-lg-9 col-xl-9">
+                                                                        <input
+                                                                            class="form-control form-control-lg form-control-solid"
+                                                                            name="amounttalent" placeholder="10" autocomplete="off"
+                                                                            required type="number" min="0">
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <!--end: Content-->
                                                         </div>
-                                                        <!--end: Info-->
                                                     </div>
-                                                </div>
+                                                    <!--end::Step 1-->
+
+                                                    <!--begin::Actions-->
+                                                    <div class="d-flex justify-content-between border-top mt-5 pt-10">
+                                                        <div>
+                                                            <button type="submit"
+                                                                class="btn btn-success font-weight-bold text-uppercase px-9 py-4"
+                                                                name="cekout">
+                                                                Cekout
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Actions-->
+                                                </form>
+                                                <!--end::Form Wizard-->
                                             </div>
-                                            <!--end::Card-->
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="card card-custom gutter-b">
-                                                <!--begin::Header-->
-                                                <div class="card-header align-items-center border-0 mt-4">
-                                                    <h3 class="card-title align-items-start flex-column">
-                                                        <span class="font-weight-bolder text-dark">My Activity</span>
-                                                        <span
-                                                            class="text-muted mt-3 font-weight-bold font-size-sm">890,344
-                                                            Sales</span>
-                                                    </h3>
-                                                    <div class="card-toolbar">
-                                                        <div class="dropdown dropdown-inline">
-                                                            <a href="#"
-                                                                class="btn btn-clean btn-hover-light-primary btn-sm btn-icon"
-                                                                data-toggle="dropdown" aria-haspopup="true"
-                                                                aria-expanded="false">
-                                                                <i class="ki ki-bold-more-hor"></i>
-                                                            </a>
-                                                            <div
-                                                                class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-                                                                <!--begin::Navigation-->
-                                                                <ul class="navi navi-hover">
-                                                                    <li class="navi-header font-weight-bold py-4">
-                                                                        <span class="font-size-lg">Choose Label:</span>
-                                                                        <i class="flaticon2-information icon-md text-muted"
-                                                                            data-toggle="tooltip" data-placement="right"
-                                                                            title="Click to learn more..."></i>
-                                                                    </li>
-                                                                    <li class="navi-separator mb-3 opacity-70"></li>
-                                                                    <li class="navi-item">
-                                                                        <a href="#" class="navi-link">
-                                                                            <span class="navi-text">
-                                                                                <span
-                                                                                    class="label label-xl label-inline label-light-success">Customer</span>
-                                                                            </span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="navi-item">
-                                                                        <a href="#" class="navi-link">
-                                                                            <span class="navi-text">
-                                                                                <span
-                                                                                    class="label label-xl label-inline label-light-danger">Partner</span>
-                                                                            </span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="navi-item">
-                                                                        <a href="#" class="navi-link">
-                                                                            <span class="navi-text">
-                                                                                <span
-                                                                                    class="label label-xl label-inline label-light-warning">Suplier</span>
-                                                                            </span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="navi-item">
-                                                                        <a href="#" class="navi-link">
-                                                                            <span class="navi-text">
-                                                                                <span
-                                                                                    class="label label-xl label-inline label-light-primary">Member</span>
-                                                                            </span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="navi-item">
-                                                                        <a href="#" class="navi-link">
-                                                                            <span class="navi-text">
-                                                                                <span
-                                                                                    class="label label-xl label-inline label-light-dark">Staff</span>
-                                                                            </span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="navi-separator mt-3 opacity-70"></li>
-                                                                    <li class="navi-footer py-4">
-                                                                        <a class="btn btn-clean font-weight-bold btn-sm"
-                                                                            href="#">
-                                                                            <i class="ki ki-plus icon-sm"></i>
-                                                                            Add new
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                                <!--end::Navigation-->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!--end::Header-->
-
-                                                <!--begin::Body-->
-                                                <div class="card-body pt-4">
-                                                    <div class="timeline timeline-5 mt-3">
-                                                        <!--begin::Item-->
-                                                        <div class="timeline-item align-items-start">
-                                                            <!--begin::Label-->
-                                                            <div
-                                                                class="timeline-label font-weight-bolder text-dark-75 font-size-lg">
-                                                                08:42</div>
-                                                            <!--end::Label-->
-
-                                                            <!--begin::Badge-->
-                                                            <div class="timeline-badge">
-                                                                <i class="fa fa-genderless text-warning icon-xl"></i>
-                                                            </div>
-                                                            <!--end::Badge-->
-
-                                                            <!--begin::Text-->
-                                                            <div
-                                                                class="font-weight-mormal font-size-lg timeline-content text-muted pl-3">
-                                                                Outlines keep you honest. And keep structure
-                                                            </div>
-                                                            <!--end::Text-->
-                                                        </div>
-                                                        <!--end::Item-->
-
-                                                        <!--begin::Item-->
-                                                        <div class="timeline-item align-items-start">
-                                                            <!--begin::Label-->
-                                                            <div
-                                                                class="timeline-label font-weight-bolder text-dark-75 font-size-lg">
-                                                                10:00</div>
-                                                            <!--end::Label-->
-
-                                                            <!--begin::Badge-->
-                                                            <div class="timeline-badge">
-                                                                <i class="fa fa-genderless text-success icon-xl"></i>
-                                                            </div>
-                                                            <!--end::Badge-->
-
-                                                            <!--begin::Content-->
-                                                            <div class="timeline-content d-flex">
-                                                                <span
-                                                                    class="font-weight-bolder text-dark-75 pl-3 font-size-lg">AEOL
-                                                                    meeting</span>
-                                                            </div>
-                                                            <!--end::Content-->
-                                                        </div>
-                                                        <!--end::Item-->
-
-                                                        <!--begin::Item-->
-                                                        <div class="timeline-item align-items-start">
-                                                            <!--begin::Label-->
-                                                            <div
-                                                                class="timeline-label font-weight-bolder text-dark-75 font-size-lg">
-                                                                14:37</div>
-                                                            <!--end::Label-->
-
-                                                            <!--begin::Badge-->
-                                                            <div class="timeline-badge">
-                                                                <i class="fa fa-genderless text-danger icon-xl"></i>
-                                                            </div>
-                                                            <!--end::Badge-->
-
-                                                            <!--begin::Desc-->
-                                                            <div
-                                                                class="timeline-content font-weight-bolder font-size-lg text-dark-75 pl-3">
-                                                                Make deposit
-                                                                <a href="#" class="text-primary">USD 700</a>.
-                                                                to ESL
-                                                            </div>
-                                                            <!--end::Desc-->
-                                                        </div>
-                                                        <!--end::Item-->
-
-                                                        <!--begin::Item-->
-                                                        <div class="timeline-item align-items-start">
-                                                            <!--begin::Label-->
-                                                            <div
-                                                                class="timeline-label font-weight-bolder text-dark-75 font-size-lg">
-                                                                16:50</div>
-                                                            <!--end::Label-->
-
-                                                            <!--begin::Badge-->
-                                                            <div class="timeline-badge">
-                                                                <i class="fa fa-genderless text-primary icon-xl"></i>
-                                                            </div>
-                                                            <!--end::Badge-->
-
-                                                            <!--begin::Text-->
-                                                            <div
-                                                                class="timeline-content font-weight-mormal font-size-lg text-muted pl-3">
-                                                                Indulging in poorly driving and keep structure keep
-                                                                great
-                                                            </div>
-                                                            <!--end::Text-->
-                                                        </div>
-                                                        <!--end::Item-->
-
-                                                        <!--begin::Item-->
-                                                        <div class="timeline-item align-items-start">
-                                                            <!--begin::Label-->
-                                                            <div
-                                                                class="timeline-label font-weight-bolder text-dark-75 font-size-lg">
-                                                                21:03</div>
-                                                            <!--end::Label-->
-
-                                                            <!--begin::Badge-->
-                                                            <div class="timeline-badge">
-                                                                <i class="fa fa-genderless text-danger icon-xl"></i>
-                                                            </div>
-                                                            <!--end::Badge-->
-
-                                                            <!--begin::Desc-->
-                                                            <div
-                                                                class="timeline-content font-weight-bolder text-dark-75 pl-3 font-size-lg">
-                                                                New order placed <a href="#"
-                                                                    class="text-primary">#XF-2356</a>.
-                                                            </div>
-                                                            <!--end::Desc-->
-                                                        </div>
-                                                        <!--end::Item-->
-
-                                                        <!--begin::Item-->
-                                                        <div class="timeline-item align-items-start">
-                                                            <!--begin::Label-->
-                                                            <div
-                                                                class="timeline-label font-weight-bolder text-dark-75 font-size-lg">
-                                                                23:07</div>
-                                                            <!--end::Label-->
-
-                                                            <!--begin::Badge-->
-                                                            <div class="timeline-badge">
-                                                                <i class="fa fa-genderless text-info icon-xl"></i>
-                                                            </div>
-                                                            <!--end::Badge-->
-
-                                                            <!--begin::Text-->
-                                                            <div
-                                                                class="timeline-content font-weight-mormal font-size-lg text-muted pl-3">
-                                                                Outlines keep and you honest. Indulging in poorly
-                                                                driving
-                                                            </div>
-                                                            <!--end::Text-->
-                                                        </div>
-                                                        <!--end::Item-->
-                                                    </div>
-                                                    <!--end: Items-->
-                                                </div>
-                                                <!--end: Card Body-->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <!--begin::Card-->
-                                            <div class="card card-custom">
-                                                <div class="card-header">
-                                                    <div class="card-title">
-                                                        <h3 class="card-label">
-                                                            Lokasi Event
-                                                        </h3>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div id="lokasi-event" style="height:300px;"></div>
-                                                </div>
-                                                <div class="card-footer">
-                                                    <!-- <p>Cek lokasi anda! >> <button class="btn btn-light-primary" onclick="getLocation()">Cek</button></p> -->
-                                                </div>
-                                            </div>
-                                            <div class="card card-custom">
-                                                <div class="card-header">
-                                                    <div class="card-title">
-                                                        <h3 class="card-label">
-                                                            Lokasi Saya
-                                                        </h3>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div id="lokasi-talent" style="height:300px;"></div>
-                                                </div>
-                                                <div class="card-footer">
-                                                    <p>Cek lokasi anda! >> <button class="btn btn-light-primary" onclick="getLocation()">Cek</button></p>
-                                                </div>
-                                            </div>
-                                            <!--end::Card-->
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- End detail job -->
-                            <!--end::Dashboard-->
+                            <!--end::Card-->
                         </div>
                         <!--end::Container-->
                     </div>
                     <!--end::Entry-->
                 </div>
                 <!--end::Content-->
-
-                <!--begin::Footer-->
-                <div class="footer py-2 py-lg-0 my-5 d-flex flex-lg-column " id="kt_footer">
-                    <!--begin::Container-->
-                    <div
-                        class=" container-fluid  d-flex flex-column flex-md-row align-items-center justify-content-between">
-                        <!--begin::Copyright-->
-                        <div class="text-dark order-2 order-md-1">
-                            <span class="text-muted font-weight-bold mr-2">2020&copy;</span>
-                            <a href="http://keenthemes.com/metronic" target="_blank"
-                                class="text-dark-75 text-hover-primary">Keenthemes</a>
-                        </div>
-                        <!--end::Copyright-->
-
-                        <!--begin::Nav-->
-                        <div class="nav nav-dark order-1 order-md-2">
-                            <a href="http://keenthemes.com/metronic" target="_blank"
-                                class="nav-link pr-3 pl-0">About</a>
-                            <a href="http://keenthemes.com/metronic" target="_blank" class="nav-link px-3">Team</a>
-                            <a href="http://keenthemes.com/metronic" target="_blank"
-                                class="nav-link pl-3 pr-0">Contact</a>
-                        </div>
-                        <!--end::Nav-->
-                    </div>
-                    <!--end::Container-->
-                </div>
-                <!--end::Footer-->
             </div>
             <!--end::Wrapper-->
 
@@ -1018,8 +809,8 @@ License: You must have a valid license purchased only from themeforest(the above
                         <!--begin::Header-->
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label font-weight-bolder text-dark">Tawaran Project</span>
-                                <span class="text-muted mt-3 font-weight-bold font-size-sm">5 Project Menunggu</span>
+                                <span class="card-label font-weight-bolder text-dark">Pengajuan Gabung Project</span>
+                                <span class="text-muted mt-3 font-weight-bold font-size-sm">5 Pengajuan Menunggu</span>
                             </h3>
                         </div>
                         <!--end::Header-->
@@ -1036,9 +827,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                 <!--begin::Text-->
                                 <div class="d-flex flex-column font-weight-bold">
-                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Seminar Sukses
-                                        Bersama</a>
-                                    <span class="text-muted">PT. Lipsum</span>
+                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Amang</a>
+                                    <span class="text-muted">Nexa - Next generation SAAS</span>
                                 </div>
                                 <!--end::Text-->
                             </div>
@@ -1053,9 +843,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                 <!--begin::Text-->
                                 <div class="d-flex flex-column font-weight-bold">
-                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Seminar Sukses
-                                        Bersama</a>
-                                    <span class="text-muted">PT. Lipsum</span>
+                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Amang</a>
+                                    <span class="text-muted">B & Q - Food Company </span>
                                 </div>
                                 <!--end::Text-->
                             </div>
@@ -1070,9 +859,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                 <!--begin::Text-->
                                 <div class="d-flex flex-column font-weight-bold">
-                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Seminar Sukses
-                                        Bersama</a>
-                                    <span class="text-muted">PT. Lipsum</span>
+                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Amang</a>
+                                    <span class="text-muted">Ad Brand - Luxury Footwear </span>
                                 </div>
                                 <!--end::Text-->
                             </div>
@@ -1087,9 +875,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                 <!--begin::Text-->
                                 <div class="d-flex flex-column font-weight-bold">
-                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Seminar Sukses
-                                        Bersama</a>
-                                    <span class="text-muted">PT. Lipsum</span>
+                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Amang</a>
+                                    <span class="text-muted">Air B & B - Real Estate</span>
                                 </div>
                                 <!--end::Text-->
                             </div>
@@ -1104,152 +891,23 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                 <!--begin::Text-->
                                 <div class="d-flex flex-column font-weight-bold">
-                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Seminar Sukses
-                                        Bersama</a>
-                                    <span class="text-muted">PT. Lipsum</span>
+                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Amang</a>
+                                    <span class="text-muted">Nexa - Next generation SAAS</span>
                                 </div>
                                 <!--end::Text-->
+                            </div>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <div class="d-flex align-items-center mb-10">
+                                <div class="col-12 text-center">
+                                    <a href="client/tawaran-job" class="btn btn-pj btn-light-primary">More</a>
+                                </div>
                             </div>
                             <!--end::Item-->
                         </div>
                         <!--end::Body-->
                     </div>
                     <!--end::List Widget 1-->
-
-
-                    <!--begin::List Widget 9-->
-                    <div class="card card-custom card-shadowless bg-white">
-                        <!--begin::Header-->
-                        <div class="card-header align-items-center border-0 mt-4">
-                            <h3 class="card-title align-items-start flex-column">
-                                <span class="font-weight-bolder text-dark">Riwayat Project</span>
-                                <span class="text-muted mt-3 font-weight-bold font-size-sm">12 Job</span>
-                            </h3>
-                            <div class="card-toolbar">
-                                <div class="dropdown dropdown-inline">
-                                    <a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="ki ki-bold-more-hor"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-                                        <!--begin::Navigation-->
-                                        <ul class="navi navi-hover">
-                                            <li class="navi-header font-weight-bold py-4">
-                                                <span class="font-size-lg">Choose Label:</span>
-                                                <i class="flaticon2-information icon-md text-muted"
-                                                    data-toggle="tooltip" data-placement="right"
-                                                    title="Click to learn more..."></i>
-                                            </li>
-                                            <li class="navi-separator mb-3 opacity-70"></li>
-                                            <li class="navi-item">
-                                                <a href="#" class="navi-link">
-                                                    <span class="navi-text">
-                                                        <span
-                                                            class="label label-xl label-inline label-light-success">Customer</span>
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li class="navi-item">
-                                                <a href="#" class="navi-link">
-                                                    <span class="navi-text">
-                                                        <span
-                                                            class="label label-xl label-inline label-light-danger">Partner</span>
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li class="navi-item">
-                                                <a href="#" class="navi-link">
-                                                    <span class="navi-text">
-                                                        <span
-                                                            class="label label-xl label-inline label-light-warning">Suplier</span>
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li class="navi-item">
-                                                <a href="#" class="navi-link">
-                                                    <span class="navi-text">
-                                                        <span
-                                                            class="label label-xl label-inline label-light-primary">Member</span>
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li class="navi-item">
-                                                <a href="#" class="navi-link">
-                                                    <span class="navi-text">
-                                                        <span
-                                                            class="label label-xl label-inline label-light-dark">Staff</span>
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li class="navi-separator mt-3 opacity-70"></li>
-                                            <li class="navi-footer py-4">
-                                                <a class="btn btn-clean font-weight-bold btn-sm" href="#">
-                                                    <i class="ki ki-plus icon-sm"></i>
-                                                    Add new
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <!--end::Navigation-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--end::Header-->
-
-                        <!--begin::Body-->
-                        <div class="card-body pt-4">
-                            <div class="timeline timeline-5 mt-3">
-                                <!--begin::Item-->
-                                <div class="timeline-item align-items-start">
-                                    <!--begin::Label-->
-                                    <div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">27-08</div>
-                                    <!--end::Label-->
-
-                                    <!--begin::Badge-->
-                                    <div class="timeline-badge">
-                                        <i class="fa fa-genderless text-success icon-xl"></i>
-                                    </div>
-                                    <!--end::Badge-->
-
-                                    <!--begin::Text-->
-                                    <div class="font-weight-bolder text-dark-75 pl-3 font-size-lg">
-                                        PT. Lipsum
-                                    </div>
-                                    <!--end::Text-->
-                                </div>
-                                <!--end::Item-->
-
-                                <!--begin::Item-->
-                                <div class="timeline-item align-items-start">
-                                    <!--begin::Label-->
-                                    <div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">25-07</div>
-                                    <!--end::Label-->
-
-                                    <!--begin::Badge-->
-                                    <div class="timeline-badge">
-                                        <i class="fa fa-genderless text-muted icon-xl"></i>
-                                    </div>
-                                    <!--end::Badge-->
-
-                                    <!--begin::Content-->
-                                    <div class="timeline-content d-flex">
-                                        <span
-                                            class="font-weight-mormal font-size-lg timeline-content text-muted pl-3">AEOL
-                                            meeting</span>
-                                    </div>
-                                    <!--end::Content-->
-                                </div>
-                                <!--end::Item-->
-
-
-                                <!--end::Item-->
-                            </div>
-                            <!--end: Items-->
-                        </div>
-                        <!--end: Card Body-->
-                    </div>
-                    <!--end: Card-->
-                    <!--end: List Widget 9-->
                 </div>
                 <!--end::Aside Secondary Content-->
             </div>
@@ -1259,266 +917,7 @@ License: You must have a valid license purchased only from themeforest(the above
     </div>
     <!--end::Main-->
 
-
-
-    <!-- begin::Notifications Panel-->
-    <div id="kt_quick_notifications" class="offcanvas offcanvas-left p-10">
-        <!--begin::Header-->
-        <div class="offcanvas-header d-flex align-items-center justify-content-between mb-10">
-            <h3 class="font-weight-bold m-0">
-                Notifications
-                <small class="text-muted font-size-sm ml-2">24 New</small>
-            </h3>
-            <a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_notifications_close">
-                <i class="ki ki-close icon-xs text-muted"></i>
-            </a>
-        </div>
-        <!--end::Header-->
-
-        <!--begin::Content-->
-        <div class="offcanvas-content pr-5 mr-n5">
-            <!--begin::Nav-->
-            <div class="navi navi-icon-circle navi-spacer-x-0">
-                <!--begin::Item-->
-                <a href="#" class="navi-item">
-                    <div class="navi-link rounded">
-                        <div class="symbol symbol-50 symbol-circle mr-3">
-                            <div class="symbol-label"><i class="flaticon-bell text-success icon-lg"></i></div>
-                        </div>
-                        <div class="navi-text">
-                            <div class="font-weight-bold font-size-lg">
-                                5 new user generated report
-                            </div>
-                            <div class="text-muted">
-                                Reports based on sales
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <!--end::Item-->
-
-                <!--begin::Item-->
-                <a href="#" class="navi-item">
-                    <div class="navi-link rounded">
-                        <div class="symbol symbol-50 symbol-circle mr-3">
-                            <div class="symbol-label"><i class="flaticon2-box text-danger icon-lg"></i></div>
-                        </div>
-                        <div class="navi-text">
-                            <div class="font-weight-bold  font-size-lg">
-                                2 new items submited
-                            </div>
-                            <div class="text-muted">
-                                by Grog John
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <!--end::Item-->
-
-                <!--begin::Item-->
-                <a href="#" class="navi-item">
-                    <div class="navi-link rounded">
-                        <div class="symbol symbol-50 symbol-circle mr-3">
-                            <div class="symbol-label"><i class="flaticon-psd text-primary icon-lg"></i></div>
-                        </div>
-                        <div class="navi-text">
-                            <div class="font-weight-bold  font-size-lg">
-                                79 PSD files generated
-                            </div>
-                            <div class="text-muted">
-                                Reports based on sales
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <!--end::Item-->
-
-                <!--begin::Item-->
-                <a href="#" class="navi-item">
-                    <div class="navi-link rounded">
-                        <div class="symbol symbol-50 symbol-circle mr-3">
-                            <div class="symbol-label"><i class="flaticon2-supermarket text-warning icon-lg"></i></div>
-                        </div>
-                        <div class="navi-text">
-                            <div class="font-weight-bold  font-size-lg">
-                                $2900 worth producucts sold
-                            </div>
-                            <div class="text-muted">
-                                Total 234 items
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <!--end::Item-->
-
-                <!--begin::Item-->
-                <a href="#" class="navi-item">
-                    <div class="navi-link rounded">
-                        <div class="symbol symbol-50 symbol-circle mr-3">
-                            <div class="symbol-label"><i class="flaticon-paper-plane-1 text-success icon-lg"></i></div>
-                        </div>
-                        <div class="navi-text">
-                            <div class="font-weight-bold  font-size-lg">
-                                4.5h-avarage response time
-                            </div>
-                            <div class="text-muted">
-                                Fostest is Barry
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <!--end::Item-->
-
-                <!--begin::Item-->
-                <a href="#" class="navi-item">
-                    <div class="navi-link rounded">
-                        <div class="symbol symbol-50 symbol-circle mr-3">
-                            <div class="symbol-label"><i
-                                    class="flaticon-safe-shield-protection text-danger icon-lg"></i></div>
-                        </div>
-                        <div class="navi-text">
-                            <div class="font-weight-bold  font-size-lg">
-                                3 Defence alerts
-                            </div>
-                            <div class="text-muted">
-                                40% less alerts thar last week
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <!--end::Item-->
-
-                <!--begin::Item-->
-                <a href="#" class="navi-item">
-                    <div class="navi-link rounded">
-                        <div class="symbol symbol-50 symbol-circle mr-3">
-                            <div class="symbol-label"><i class="flaticon-notepad text-primary icon-lg"></i></div>
-                        </div>
-                        <div class="navi-text">
-                            <div class="font-weight-bold  font-size-lg">
-                                Avarage 4 blog posts per author
-                            </div>
-                            <div class="text-muted">
-                                Most posted 12 time
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <!--end::Item-->
-
-                <!--begin::Item-->
-                <a href="#" class="navi-item">
-                    <div class="navi-link rounded">
-                        <div class="symbol symbol-50 symbol-circle mr-3">
-                            <div class="symbol-label"><i class="flaticon-users-1 text-warning icon-lg"></i></div>
-                        </div>
-                        <div class="navi-text">
-                            <div class="font-weight-bold  font-size-lg">
-                                16 authors joined last week
-                            </div>
-                            <div class="text-muted">
-                                9 photodrapehrs, 7 designer
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <!--end::Item-->
-
-                <!--begin::Item-->
-                <a href="#" class="navi-item">
-                    <div class="navi-link rounded">
-                        <div class="symbol symbol-50 symbol-circle mr-3">
-                            <div class="symbol-label"><i class="flaticon2-box text-info icon-lg"></i></div>
-                        </div>
-                        <div class="navi-text">
-                            <div class="font-weight-bold  font-size-lg">
-                                2 new items have been submited
-                            </div>
-                            <div class="text-muted">
-                                by Grog John
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <!--end::Item-->
-
-                <!--begin::Item-->
-                <a href="#" class="navi-item">
-                    <div class="navi-link rounded">
-                        <div class="symbol symbol-50 symbol-circle mr-3">
-                            <div class="symbol-label"><i class="flaticon2-download text-success icon-lg"></i></div>
-                        </div>
-                        <div class="navi-text">
-                            <div class="font-weight-bold  font-size-lg">
-                                2.8 GB-total downloads size
-                            </div>
-                            <div class="text-muted">
-                                Mostly PSD end AL concepts
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <!--end::Item-->
-
-                <!--begin::Item-->
-                <a href="#" class="navi-item">
-                    <div class="navi-link rounded">
-                        <div class="symbol symbol-50 symbol-circle mr-3">
-                            <div class="symbol-label"><i class="flaticon2-supermarket text-danger icon-lg"></i></div>
-                        </div>
-                        <div class="navi-text">
-                            <div class="font-weight-bold  font-size-lg">
-                                $2900 worth producucts sold
-                            </div>
-                            <div class="text-muted">
-                                Total 234 items
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <!--end::Item-->
-
-                <!--begin::Item-->
-                <a href="#" class="navi-item">
-                    <div class="navi-link rounded">
-                        <div class="symbol symbol-50 symbol-circle mr-3">
-                            <div class="symbol-label"><i class="flaticon-bell text-primary icon-lg"></i></div>
-                        </div>
-                        <div class="navi-text">
-                            <div class="font-weight-bold  font-size-lg">
-                                7 new user generated report
-                            </div>
-                            <div class="text-muted">
-                                Reports based on sales
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <!--end::Item-->
-
-                <!--begin::Item-->
-                <a href="#" class="navi-item">
-                    <div class="navi-link rounded">
-                        <div class="symbol symbol-50 symbol-circle mr-3">
-                            <div class="symbol-label"><i class="flaticon-paper-plane-1 text-success icon-lg"></i></div>
-                        </div>
-                        <div class="navi-text">
-                            <div class="font-weight-bold  font-size-lg">
-                                4.5h-avarage response time
-                            </div>
-                            <div class="text-muted">
-                                Fostest is Barry
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <!--end::Item-->
-            </div>
-            <!--end::Nav-->
-        </div>
-        <!--end::Content-->
-    </div>
-    <!-- end::Notifications Panel-->
+    <?php include("notif.php"); ?>
 
     <!--begin::Quick Actions Panel-->
     <div id="kt_quick_actions" class="offcanvas offcanvas-left p-10">
@@ -1727,7 +1126,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <i class="symbol-badge bg-success"></i>
                 </div>
                 <div class="d-flex flex-column">
-                    <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">
+                    <a href="client/profil" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">
                         James Jones
                     </a>
                     <div class="text-muted mt-1">
@@ -1768,7 +1167,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <!--begin::Nav-->
             <div class="navi navi-spacer-x-0 p-0">
                 <!--begin::Item-->
-                <a href="custom/apps/user/profile-1/personal-information.html" class="navi-item">
+                <a href="client/profil" class="navi-item">
                     <div class="navi-link">
                         <div class="symbol symbol-40 bg-light mr-3">
                             <div class="symbol-label">
@@ -3008,370 +2407,14 @@ License: You must have a valid license purchased only from themeforest(the above
             <!--end::Svg Icon--></span></div>
     <!--end::Scrolltop-->
 
-    <!--begin::Demo Panel-->
-    <div id="kt_demo_panel" class="offcanvas offcanvas-right p-10">
-        <!--begin::Header-->
-        <div class="offcanvas-header d-flex align-items-center justify-content-between pb-7">
-            <h4 class="font-weight-bold m-0">
-                Select A Demo
-            </h4>
-            <a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_demo_panel_close">
-                <i class="ki ki-close icon-xs text-muted"></i>
-            </a>
-        </div>
-        <!--end::Header-->
 
-        <!--begin::Content-->
-        <div class="offcanvas-content">
-            <!--begin::Wrapper-->
-            <div class="offcanvas-wrapper mb-5 scroll-pull">
-                <h5 class="font-weight-bold mb-4 text-center">Demo 1</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo1.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="https://keenthemes.com/metronic/preview/demo1/index.html"
-                            class="btn font-weight-bold btn-primary btn-shadow " target="_blank">Default</a>
-                        <a href="https://keenthemes.com/metronic/preview/demo1/rtl/index.html"
-                            class="btn btn-light btn-shadow" target="_blank">RTL Version</a>
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 2</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo2.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="https://keenthemes.com/metronic/preview/demo2/index.html"
-                            class="btn font-weight-bold btn-primary btn-shadow " target="_blank">Default</a>
-                        <a href="https://keenthemes.com/metronic/preview/demo2/rtl/index.html"
-                            class="btn btn-light btn-shadow" target="_blank">RTL Version</a>
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 3</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo3.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="https://keenthemes.com/metronic/preview/demo3/index.html"
-                            class="btn font-weight-bold btn-primary btn-shadow " target="_blank">Default</a>
-                        <a href="https://keenthemes.com/metronic/preview/demo3/rtl/index.html"
-                            class="btn btn-light btn-shadow" target="_blank">RTL Version</a>
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 4</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo4.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="https://keenthemes.com/metronic/preview/demo4/index.html"
-                            class="btn font-weight-bold btn-primary btn-shadow " target="_blank">Default</a>
-                        <a href="https://keenthemes.com/metronic/preview/demo4/rtl/index.html"
-                            class="btn btn-light btn-shadow" target="_blank">RTL Version</a>
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 5</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo5.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="https://keenthemes.com/metronic/preview/demo5/index.html"
-                            class="btn font-weight-bold btn-primary btn-shadow " target="_blank">Default</a>
-                        <a href="https://keenthemes.com/metronic/preview/demo5/rtl/index.html"
-                            class="btn btn-light btn-shadow" target="_blank">RTL Version</a>
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 6</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo6.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="https://keenthemes.com/metronic/preview/demo6/index.html"
-                            class="btn font-weight-bold btn-primary btn-shadow " target="_blank">Default</a>
-                        <a href="https://keenthemes.com/metronic/preview/demo6/rtl/index.html"
-                            class="btn btn-light btn-shadow" target="_blank">RTL Version</a>
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 7</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo7.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="https://keenthemes.com/metronic/preview/demo7/index.html"
-                            class="btn font-weight-bold btn-primary btn-shadow " target="_blank">Default</a>
-                        <a href="https://keenthemes.com/metronic/preview/demo7/rtl/index.html"
-                            class="btn btn-light btn-shadow" target="_blank">RTL Version</a>
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 8</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo8.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="https://keenthemes.com/metronic/preview/demo8/index.html"
-                            class="btn font-weight-bold btn-primary btn-shadow " target="_blank">Default</a>
-                        <a href="https://keenthemes.com/metronic/preview/demo8/rtl/index.html"
-                            class="btn btn-light btn-shadow" target="_blank">RTL Version</a>
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 9</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo9.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="https://keenthemes.com/metronic/preview/demo9/index.html"
-                            class="btn font-weight-bold btn-primary btn-shadow " target="_blank">Default</a>
-                        <a href="https://keenthemes.com/metronic/preview/demo9/rtl/index.html"
-                            class="btn btn-light btn-shadow" target="_blank">RTL Version</a>
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 10</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo offcanvas-demo-active">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo10.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="https://keenthemes.com/metronic/preview/demo10/index.html"
-                            class="btn font-weight-bold btn-primary btn-shadow " target="_blank">Default</a>
-                        <a href="https://keenthemes.com/metronic/preview/demo10/rtl/index.html"
-                            class="btn btn-light btn-shadow" target="_blank">RTL Version</a>
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 11</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo11.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="https://keenthemes.com/metronic/preview/demo11/index.html"
-                            class="btn font-weight-bold btn-primary btn-shadow " target="_blank">Default</a>
-                        <a href="https://keenthemes.com/metronic/preview/demo11/rtl/index.html"
-                            class="btn btn-light btn-shadow" target="_blank">RTL Version</a>
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 12</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo12.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="https://keenthemes.com/metronic/preview/demo12/index.html"
-                            class="btn font-weight-bold btn-primary btn-shadow " target="_blank">Default</a>
-                        <a href="https://keenthemes.com/metronic/preview/demo12/rtl/index.html"
-                            class="btn btn-light btn-shadow" target="_blank">RTL Version</a>
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 13</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo13.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="https://keenthemes.com/metronic/preview/demo13/index.html"
-                            class="btn font-weight-bold btn-primary btn-shadow " target="_blank">Default</a>
-                        <a href="https://keenthemes.com/metronic/preview/demo13/rtl/index.html"
-                            class="btn btn-light btn-shadow" target="_blank">RTL Version</a>
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 14</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo14.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
 
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 15</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo15.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
-
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 16</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo16.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
-
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 17</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo17.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
-
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 18</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo18.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
-
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 19</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo19.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
-
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 20</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo20.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
-
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 21</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo21.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
-
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 22</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo22.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
-
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 23</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo23.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
-
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 24</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo24.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
-
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 25</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo25.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
-
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 26</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo26.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
-
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 27</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo27.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
-
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 28</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo28.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
-
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 29</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo29.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
-
-                    </div>
-                </div>
-                <h5 class="font-weight-bold mb-4 text-center">Demo 30</h5>
-                <div class="overlay rounded-lg mb-8 offcanvas-demo ">
-                    <div class="overlay-wrapper rounded-lg">
-                        <img src="assets//../../../../../../doc/assets/img/demos/demo30.png" alt="" class="w-100" />
-                    </div>
-                    <div class="overlay-layer">
-                        <a href="#" class="btn font-weight-bold btn-primary btn-shadow disabled">Coming soon</a>
-
-                    </div>
-                </div>
-            </div>
-            <!--end::Wrapper-->
-
-            <!--begin::Purchase-->
-            <div class="offcanvas-footer">
-                <a href="https://1.envato.market/EA4JP" target="_blank"
-                    class="btn btn-block btn-danger btn-shadow font-weight-bolder text-uppercase">
-                    Buy Metronic Now!
-                </a>
-            </div>
-            <!--end::Purchase-->
-        </div>
-        <!--end::Content-->
-    </div>
-    <!--end::Demo Panel-->
 
     <script>
         var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";
     </script>
     <!--begin::Global Config(global config for global JS scripts)-->
-    <script type="text/javascript">
+    <script>
         var KTAppSettings = {
             "breakpoints": {
                 "sm": 576,
@@ -3430,7 +2473,6 @@ License: You must have a valid license purchased only from themeforest(the above
             },
             "font-family": "Poppins"
         };
-
     </script>
     <!--end::Global Config-->
 
@@ -3441,93 +2483,12 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--end::Global Theme Bundle-->
 
     <!--begin::Page Vendors(used by this page)-->
-    <script src="assets/plugins/custom/fullcalendar/fullcalendar.bundle.js?v=7.0.6"></script>
-    <script src="assets/plugins/custom/leaflet/leaflet.bundle.js?v=7.0.6"></script>
+    <script src="assets/plugins/custom/datatables/datatables.bundle.js?v=7.0.6"></script>
     <!--end::Page Vendors-->
 
     <!--begin::Page Scripts(used by this page)-->
     <script src="assets/js/pages/widgets.js?v=7.0.6"></script>
-    <script src="assets/js/pages/features/maps/leaflet.js?v=7.0.6"></script>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-        crossorigin=""></script>
-
-    <script type="text/javascript">
-    location_event();
-        //mencari lokasi saat ini
-        var location_event = document.getElementById("lokasi-event");
-        var location_talent = document.getElementById("lokasi-talent");
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } else {
-                location_talent.innerHTML = "Yah browsernya ngga support Geolocation bro!";
-            }
-        }
-
-        function showPosition(position) {
-            var lat = position.coords.latitude;
-            var lon = position.coords.longitude;
-            location_talent.innerHTML = "Latitude: " + position.coords.latitude +
-                "<br>Longitude: " + position.coords.longitude;
-            maps(lat, lon);
-        }
-
-        function maps(lat, lon){
-            var mapOptions = {
-                center: [lat, lon],
-                zoom: 18
-            }
-            var peta = new L.map('lokasi-talent', mapOptions);
-            // membuat marker
-            var marker = new L.Marker([lat, lon]);
-            marker.addTo(peta);
-            var circle = new L.Circle([lat, lon]);
-            circle.addTo(peta);
-
-            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                maxZoom: 24,
-                id: 'mapbox/streets-v11',
-                tileSize: 512,
-                zoomOffset: -1,
-                accessToken: 'pk.eyJ1Ijoia2lreXkiLCJhIjoiY2thbzFqbjA4MXg3eDJ5bDZtMjhjbXExZCJ9.MneUK779UGCqMsJTtSKGuQ'
-            }).addTo(peta);
-        }
-
-        function location_event() {
-            // alert('Hallow');
-            var lat = -3.2982014122903895;
-            var lon = 114.58630566090656;
-            event_maps(lat, lon);
-        }
-
-        function event_maps(lat, lon){
-            var mapOptions = {
-                center: [-3.2982014122903895, 114.58630566090656],
-                zoom: 18
-            }
-            var peta1 = new L.map('lokasi-event', mapOptions);
-            // membuat marker
-            var marker = new L.Marker([lat, lon]);
-            marker.addTo(peta1);
-            var circle = new L.Circle([lat, lon]);
-            circle.addTo(peta1);
-
-            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                maxZoom: 24,
-                id: 'mapbox/streets-v11',
-                tileSize: 512,
-                zoomOffset: -1,
-                accessToken: 'pk.eyJ1Ijoia2lreXkiLCJhIjoiY2thbzFqbjA4MXg3eDJ5bDZtMjhjbXExZCJ9.MneUK779UGCqMsJTtSKGuQ'
-            }).addTo(peta1);
-        }
-
-
-            // event_maps(-3.298874,114.590601);
-
-    </script>
+    <!-- <script src="assets/js/pages/custom/projects/add-project.js?v=7.0.6"></script> -->
     <!--end::Page Scripts-->
 </body>
 <!--end::Body-->

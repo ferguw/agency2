@@ -1,4 +1,4 @@
-<?php 
+<?php
   error_reporting(0);
   ini_set('display_errors', 0);
 
@@ -58,11 +58,12 @@
             $lname = $_POST ['lname'];
             $email = $_POST['email'];
             $user_client = $email;
-            mysqli_query($conn, "INSERT INTO client (`idc`,`fname`,`lname`,`username`,`password`,`email`,`deskripsi`) VALUES (NULL, '$fname','$lname','$user_client','$password','$email','Input Deskripsi ...')");
+            mysqli_query($conn, "INSERT INTO client (`idc`,`fname`,`lname`,`username`,`password`,`email`,`deskripsi`)
+            VALUES (NULL, '$fname','$lname','$user_client','$password','$email','Input Deskripsi ...')");
             header('location:signin-client');
         }
 
-    
+
     //Sign-up Talent
         if (isset($_POST['signup_talent'])) {
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
@@ -70,14 +71,15 @@
             $lname = $_POST ['lname'];
             $email = $_POST['email'];
             $user_talent= $email;
-            mysqli_query($conn, "INSERT INTO talent (`idt`,`fname`,`lname`,`username`,`password`,`email`,`deskripsi`) VALUES (NULL, '$fname','$lname','$user_talent','$password','$email','Input Deskripsi ...')");
+            mysqli_query($conn, "INSERT INTO talent (`idt`,`fname`,`lname`,`username`,`password`,`email`,`deskripsi`)
+            VALUES (NULL, '$fname','$lname','$user_talent','$password','$email','Input Deskripsi ...')");
             header('location:signin-talent');
         }
 
     //Talent Notifikasi
         $idt = $_SESSION['idt'];
         $query_notifikasi_talent = mysqli_query($conn, "SELECT * FROM notif WHERE idu = '$idt'");
-    
+
     //Talent Tawaran Project Notifikasi
         $idt = $_SESSION['idt'];
         $query_tawaran_project_notif = mysqli_query($conn, "SELECT * FROM tawaran WHERE idu = '$idt'");
@@ -95,11 +97,11 @@
 
     //Talent List Tawaran Job
         $idt = $_SESSION['idt'];
-        $query_list_tawaran = mysqli_query($conn, "SELECT * FROM tawaran WHERE idu = '$idt'"); 
+        $query_list_tawaran = mysqli_query($conn, "SELECT * FROM tawaran WHERE idu = '$idt'");
 
     //Talent View Tawaran Job
         $query_view_tawaran_tabel = mysqli_query($conn, "SELECT * FROM tawaran WHERE idu = '$idt' AND idj ='$idj'");
-        $data_view_tawaran_table = mysqli_fetch_assoc($query_view_tawaran_tabel); 
+        $data_view_tawaran_table = mysqli_fetch_assoc($query_view_tawaran_tabel);
         $query_view_tawaran = mysqli_query($conn, "SELECT * FROM job WHERE idj = '$idj'");
         $data_view_tawaran =mysqli_fetch_assoc($query_view_tawaran);
 
@@ -113,16 +115,68 @@
         mysqli_query($conn, "UPDATE tawaran SET twsts='tolak' WHERE idt = '$id_tawaran'");
         header("location:tawaran-job");
     }else {
-        
+
     }
 
 
 
 
 
-    //Client List-Job   
+    //Client List-Job
         $idc = $_SESSION['idc'];
         $query_client_list_project = mysqli_query($conn, "SELECT * FROM job WHERE idc = '$idc'");
-    
-    
+
+    // //Client Cekout
+    //     if(isset($_POST['cekout'])){
+    //             $projectname = $_POST['peojectname'];
+    //             $projectdescription = $_POST['projectdescription'];
+    //             $phone = $_POST['phone'];
+    //             $email = $_POST['email'];
+    //             $companywebsite = $_POST['companywebsite'];
+    //             $address = $_POST['address'];
+    //             $city = $_POST['city'];
+    //             $location = $_POST['location'];
+    //             $dtstart = $_POST['dtstart'];
+    //             $dtend = $_POST['dtend'];
+    //             $workday = $_POST['workday'];
+    //             $numday = $_POST['numday'];
+    //             $salary = $_POST['salary'];
+    //             $amounttalent = $_POST['amounttalent'];
+
+    //         }
+
+    //Client Project Send
+        if(isset($_POST['sendproject'])){
+          $idc = $_SESSION['idc'];
+          $projectname = $_POST['projectname'];
+          $projectdescription = $_POST['projectdescription'];
+          $phone = $_POST['phone'];
+          $email = $_POST['email'];
+          $companywebsite = $_POST['companywebsite'];
+          $address = $_POST['address'];
+          $city = $_POST['city'];
+          $location = $_POST['location'];
+          $dtstart = date("Y-m-d H:i:s", strtotime($_POST["dtstart"]));
+          $dtend = date("Y-m-d H:i:s", strtotime($_POST["dtend"]));
+          $workday = $_POST['workday'];
+          $numday = $_POST['numday'];
+          $salary = $_POST['salary'];
+          $amounttalent = $_POST['amounttalent'];
+          $grandtotal = $numday * $salary * $amounttalent;
+            mysqli_query($conn, "INSERT INTO job (`idj`, `idc`, `judul`, `deskripsi`, `phone`, `email`, `start`, `end`,
+               `lokasi`, `compweb`, `address`, `city`, `workday`, `numday`, `salary`, `talentamout`, `grandtotal`, `status`)
+                VALUES (NULL, '$idc', '$projectname', '$projectdescription', '$phone', '$email', '$dtstart', '$dtend', '$location', '$companywebsite',
+                  '$address', '$city', '$workday', '$numday', '$salary', '$amounttalent', '$grandtotal', 'waiting')");
+          header('location:list-project');
+
+        }
+
+    // Client Detail/Edit project
+      $idj = $_GET['idj'];
+      $query_client_detail_project = mysqli_query($conn, "SELECT * FROM job WHERE idj = '$idj'");
+      $data_client_detail_project = mysqli_fetch_assoc($query_client_detail_project);
+
+
+
+
 ?>

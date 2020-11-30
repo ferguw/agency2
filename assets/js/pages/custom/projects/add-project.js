@@ -58,24 +58,17 @@ var KTProjectsAdd = function () {
 			_formEl,
 			{
 				fields: {
-					projectname: {
+					jobname: {
 						validators: {
 							notEmpty: {
 								message: 'Project name is required'
 							}
 						}
 					},
-					projectowner: {
+					phone: {
 						validators: {
 							notEmpty: {
-								message: 'Project owner is required'
-							}
-						}
-					},
-					customername: {
-						validators: {
-							notEmpty: {
-								message: 'Customer name is required'
+								message: 'Project description is required'
 							}
 						}
 					},
@@ -85,8 +78,8 @@ var KTProjectsAdd = function () {
 								message: 'Phone is required'
 							},
 							phone: {
-								country: 'US',
-								message: 'The value is not a valid US phone number. (e.g 5554443333)'
+								country: 'IDN',
+								message: 'The value is not a valid ID phone number. (e.g 081234567890)'
 							}
 						}
 					},

@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  include('session_check.php');
+
+ ?>
 <!--
 Template Name: Metronic - Bootstrap 4 HTML, React, Angular 9 & VueJS Admin Dashboard Theme
 Author: KeenThemes
@@ -475,7 +480,6 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <!--end: Pic-->
-
                                         <!--begin: Info-->
                                         <div class="flex-grow-1">
                                             <!--begin: Title-->
@@ -484,14 +488,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <!--begin::Name-->
                                                     <a href="#"
                                                         class="d-flex align-items-center text-dark text-hover-primary font-size-h5 font-weight-bold mr-3">
-                                                        Nexa - Next generation SAAS <i
+                                                        <?php echo $data_client_detail_project['judul']; ?> <i
                                                             class="flaticon2-correct text-success icon-md ml-2"></i>
                                                     </a>
                                                     <!--end::Name-->
 
                                                     <!--begin::Contacts-->
                                                     <div class="d-flex flex-wrap my-2">
-                                                        <a href="#"
+                                                        <a href="mailto: <?php echo $data_client_detail_project['email']; ?>"
                                                             class="text-muted text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2">
                                                             <span class="svg-icon svg-icon-md svg-icon-gray-500 mr-1">
                                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Mail-notification.svg--><svg
@@ -509,7 +513,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                             cy="17.5" r="2.5" />
                                                                     </g>
                                                                 </svg>
-                                                                <!--end::Svg Icon--></span> jason@siastudio.com
+                                                                <!--end::Svg Icon--></span> <?php echo $data_client_detail_project['email']; ?>
                                                         </a>
                                                         <a href="#"
                                                             class="text-muted text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2">
@@ -532,7 +536,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                 </svg>
                                                                 <!--end::Svg Icon--></span> PR Manager
                                                         </a>
-                                                        <a href="#"
+                                                          <a href="http://maps.google.com?q=<?php echo $data_client_detail_project['lokasi']; ?>" target="_blank"
                                                             class="text-muted text-hover-primary font-weight-bold">
                                                             <span class="svg-icon svg-icon-md svg-icon-gray-500 mr-1">
                                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Map/Marker2.svg--><svg
@@ -548,7 +552,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                             fill="#000000" />
                                                                     </g>
                                                                 </svg>
-                                                                <!--end::Svg Icon--></span> Melbourne
+                                                                <!--end::Svg Icon--></span> <?php echo $data_client_detail_project['address']; ?>
                                                         </a>
                                                     </div>
                                                     <!--end::Contacts-->
@@ -567,26 +571,23 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="d-flex align-items-center flex-wrap justify-content-between">
                                                 <div
                                                     class="flex-grow-1 font-weight-bold text-dark-50 py-5 py-lg-2 mr-5">
-                                                    I distinguish three main text objectives<br />
-                                                    could be merely to inform people
+                                                    <?php echo $data_client_detail_project['deskripsi']; ?>
                                                 </div>
 
                                                 <div class="d-flex flex-wrap align-items-center py-2">
                                                     <div class="d-flex align-items-center mr-10">
                                                         <div class="mr-6">
-                                                            <div class="font-weight-bold mb-2">Start Date</div>
+                                                            <div class="font-weight-bold mb-2">Start Date & Time</div>
                                                             <span
-                                                                class="btn btn-sm btn-text btn-light-primary text-uppercase font-weight-bold">07
-                                                                May, 2020</span>
+                                                                class="btn btn-sm btn-text btn-light-primary text-uppercase font-weight-bold"><?php echo $data_client_detail_project['start']; ?></span>
                                                         </div>
                                                         <div class="">
-                                                            <div class="font-weight-bold mb-2">Due Date</div>
+                                                            <div class="font-weight-bold mb-2">End Date & Time</div>
                                                             <span
-                                                                class="btn btn-sm btn-text btn-light-danger text-uppercase font-weight-bold">10
-                                                                June, 2021</span>
+                                                                class="btn btn-sm btn-text btn-light-danger text-uppercase font-weight-bold"><?php echo $data_client_detail_project['end']; ?></span>
                                                         </div>
                                                     </div>
-                                                    <div
+                                                    <!-- <div
                                                         class="flex-grow-1 flex-shrink-0 w-150px w-xl-300px mt-4 mt-sm-0">
                                                         <span class="font-weight-bold">Progress</span>
                                                         <div class="progress progress-xs mt-2 mb-2">
@@ -595,7 +596,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                 aria-valuemax="100"></div>
                                                         </div>
                                                         <span class="font-weight-bolder text-dark">78%</span>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                             <!--end: Content-->
@@ -613,9 +614,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <i class="flaticon-piggy-bank icon-2x text-muted font-weight-bold"></i>
                                             </span>
                                             <div class="d-flex flex-column text-dark-75">
-                                                <span class="font-weight-bolder font-size-sm">Earnings</span>
+                                                <span class="font-weight-bolder font-size-sm">Salary</span>
                                                 <span class="font-weight-bolder font-size-h5"><span
-                                                        class="text-dark-50 font-weight-bold">$</span>249,500</span>
+                                                        class="text-dark-50 font-weight-bold">Rp.</span><?php echo $data_client_detail_project['salary']; ?></span>
                                             </div>
                                         </div>
                                         <!--end: Item-->
@@ -626,9 +627,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <i class="flaticon-confetti icon-2x text-muted font-weight-bold"></i>
                                             </span>
                                             <div class="d-flex flex-column text-dark-75">
-                                                <span class="font-weight-bolder font-size-sm">Expenses</span>
+                                                <span class="font-weight-bolder font-size-sm">Ammout of Talent</span>
                                                 <span class="font-weight-bolder font-size-h5"><span
-                                                        class="text-dark-50 font-weight-bold">$</span>164,700</span>
+                                                        class="text-dark-50 font-weight-bold"></span><?php echo $data_client_detail_project['talentamout']; ?> Person</span>
                                             </div>
                                         </div>
                                         <!--end: Item-->
@@ -639,35 +640,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <i class="flaticon-pie-chart icon-2x text-muted font-weight-bold"></i>
                                             </span>
                                             <div class="d-flex flex-column text-dark-75">
-                                                <span class="font-weight-bolder font-size-sm">Net</span>
+                                                <span class="font-weight-bolder font-size-sm">Grand Total</span>
                                                 <span class="font-weight-bolder font-size-h5"><span
-                                                        class="text-dark-50 font-weight-bold">$</span>782,300</span>
-                                            </div>
-                                        </div>
-                                        <!--end: Item-->
-
-                                        <!--begin: Item-->
-                                        <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
-                                            <span class="mr-4">
-                                                <i class="flaticon-file-2 icon-2x text-muted font-weight-bold"></i>
-                                            </span>
-                                            <div class="d-flex flex-column flex-lg-fill">
-                                                <span class="text-dark-75 font-weight-bolder font-size-sm">73
-                                                    Tasks</span>
-                                                <a href="#" class="text-primary font-weight-bolder">View</a>
-                                            </div>
-                                        </div>
-                                        <!--end: Item-->
-
-                                        <!--begin: Item-->
-                                        <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
-                                            <span class="mr-4">
-                                                <i class="flaticon-chat-1 icon-2x text-muted font-weight-bold"></i>
-                                            </span>
-                                            <div class="d-flex flex-column">
-                                                <span class="text-dark-75 font-weight-bolder font-size-sm">648
-                                                    Comments</span>
-                                                <a href="#" class="text-primary font-weight-bolder">View</a>
+                                                        class="text-dark-50 font-weight-bold">Rp.</span><?php echo $data_client_detail_project['grandtotal']; ?></span>
                                             </div>
                                         </div>
                                         <!--end: Item-->
@@ -830,18 +805,25 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         Name</label>
                                                     <div class="col-lg-9 col-xl-6">
                                                         <input class="form-control form-control-lg form-control-solid"
-                                                            type="text" value="Nick" />
+                                                            type="text" value="<?php echo $data_client_detail_project['judul']; ?>" />
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label text-right">Project
+                                                        Name</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <textarea class="form-control form-control-lg form-control-solid" name="projectdescription" rows="8" cols="80"><?php echo $data_client_detail_project['deskripsi']; ?></textarea>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="form-group row">
                                                     <label class="col-xl-3 col-lg-3 col-form-label text-right">Project
                                                         Owner</label>
                                                     <div class="col-lg-9 col-xl-6">
                                                         <input class="form-control form-control-lg form-control-solid"
                                                             type="text" value="Bold" />
                                                     </div>
-                                                </div>
-                                                <div class="form-group row">
+                                                </div> -->
+                                                <!-- <div class="form-group row">
                                                     <label class="col-xl-3 col-lg-3 col-form-label text-right">Customer
                                                         Name</label>
                                                     <div class="col-lg-9 col-xl-6">
@@ -850,6 +832,20 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         <span class="form-text text-muted">If you want your invoices
                                                             addressed to a company. Leave blank to use your full
                                                             name.</span>
+                                                    </div>
+                                                </div> -->
+                                                <div class="form-group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label text-right">Address</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <input class="form-control form-control-lg form-control-solid"
+                                                            type="text" value="<?php echo $data_client_detail_project['address']; ?>" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label text-right">Maps</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <input class="form-control form-control-lg form-control-solid"
+                                                            type="text" value="<?php echo $data_client_detail_project['lokasi']; ?>" />
                                                     </div>
                                                 </div>
 
@@ -873,10 +869,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                         class="la la-phone"></i></span></div>
                                                             <input type="text"
                                                                 class="form-control form-control-lg form-control-solid"
-                                                                value="+35278953712" placeholder="Phone" />
+                                                                value="<?php echo $data_client_detail_project['phone']; ?>" placeholder="Phone" />
                                                         </div>
-                                                        <span class="form-text text-muted">We'll never share your email
-                                                            with anyone else.</span>
                                                     </div>
                                                 </div>
 
@@ -888,9 +882,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             <div class="input-group-prepend"><span
                                                                     class="input-group-text"><i
                                                                         class="la la-at"></i></span></div>
-                                                            <input type="text"
+                                                            <input type="email"
                                                                 class="form-control form-control-lg form-control-solid"
-                                                                value="nick.bold@loop.com" placeholder="Email" />
+                                                                value="<?php echo $data_client_detail_project['email']; ?>" placeholder="Email" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -902,11 +896,16 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         <div class="input-group input-group-lg input-group-solid">
                                                             <input type="text"
                                                                 class="form-control form-control-lg form-control-solid"
-                                                                placeholder="Username" value="loop" />
-                                                            <div class="input-group-append"><span
-                                                                    class="input-group-text">.com</span></div>
+                                                                placeholder="http://example.com" value="<?php echo $data_client_detail_project['compweb']; ?>" />
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="d-flex justify-content-between border-top mt-5 pt-10">
+                                                        <button type="submit"
+                                                            class="btn btn-success font-weight-bold text-uppercase px-9 py-4"
+                                                            name="cekout">
+                                                            Cekout
+                                                        </button>
                                                 </div>
                                             </form>
                                         </div>

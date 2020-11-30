@@ -697,7 +697,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <!-- end::tittle -->
                             <!-- list job -->
                             <div class="row">
-<?php while($data_list_job = mysqli_fetch_assoc($query_list_job)) {?>
+                                <?php while($data_list_job = mysqli_fetch_assoc($query_list_job)) {?>
                                 <!--begin::Col-->
                                 <div class="col-xl-4">
                                     <!--begin::Card-->
@@ -834,7 +834,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <!--end:: Card-->
                                 </div>
                                 <!--end::Col-->
-<?php }; ?>
+                                <?php }; ?>
                             </div>
                             <!--end::Dashboard-->
                         </div>

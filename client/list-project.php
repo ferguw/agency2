@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php 
+<?php
     session_start();
     include("../_init.php");
 ?>
@@ -490,13 +490,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <tr>
                                                 <th>Nomor</th>
                                                 <th>Job ID</th>
-                                                <th>Judul Job</th> 
+                                                <th>Judul Job</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
                                                 <th>Start Date</th>
                                                 <th>End Date</th>
-                                                <th>Location</th>
-                                                <th>Action</th>  
+                                                <th>Address</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
 
@@ -506,14 +506,14 @@ License: You must have a valid license purchased only from themeforest(the above
     while($data_client_list_project = mysqli_fetch_assoc($query_client_list_project)) {
 ?>
                                             <tr>
-                                                <td><?php echo $nomor; ?></td>  
+                                                <td><?php echo $nomor; ?></td>
                                                 <td><?php echo $data_client_list_project['idj']; ?></td>
                                                 <td><?php echo $data_client_list_project['judul']; ?></td>
                                                 <td><?php echo $data_client_list_project['email']; ?></td>
                                                 <td><?php echo $data_client_list_project['phone']; ?></td>
                                                 <td><?php echo $data_client_list_project['start']; ?></td>
                                                 <td><?php echo $data_client_list_project['end']; ?></td>
-                                                <td><?php echo $data_client_list_project['lokasi']; ?></td>
+                                                <td><?php echo $data_client_list_project['address']; ?></td>
                                                 <td><a href="client/edit-project?idj=<?php echo $data_client_list_project['idj']; ?>" class="btn btn-sm btn-clean btn-icon" title="Edit details">
                                                     <i class="la la-edit"></i></td>
                                             </tr>
