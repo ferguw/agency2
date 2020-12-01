@@ -126,24 +126,15 @@
         $idc = $_SESSION['idc'];
         $query_client_list_project = mysqli_query($conn, "SELECT * FROM job WHERE idc = '$idc'");
 
-    // //Client Cekout
-    //     if(isset($_POST['cekout'])){
-    //             $projectname = $_POST['peojectname'];
-    //             $projectdescription = $_POST['projectdescription'];
-    //             $phone = $_POST['phone'];
-    //             $email = $_POST['email'];
-    //             $companywebsite = $_POST['companywebsite'];
-    //             $address = $_POST['address'];
-    //             $city = $_POST['city'];
-    //             $location = $_POST['location'];
-    //             $dtstart = $_POST['dtstart'];
-    //             $dtend = $_POST['dtend'];
-    //             $workday = $_POST['workday'];
-    //             $numday = $_POST['numday'];
-    //             $salary = $_POST['salary'];
-    //             $amounttalent = $_POST['amounttalent'];
-
-    //         }
+    //Client What You Need
+      if (isset($_POST['need_button'])) {
+        $checked_arr = $_POST['need'];
+        $count = count($checked_arr);
+        echo "There are ".$count." checkboxe(s) are checked";
+        foreach($_POST['need'] as $selected) {
+        echo "<p>".$selected ."</p>";
+        }
+      }
 
     //Client Project Send
         if(isset($_POST['sendproject'])){
@@ -175,6 +166,21 @@
       $idj = $_GET['idj'];
       $query_client_detail_project = mysqli_query($conn, "SELECT * FROM job WHERE idj = '$idj'");
       $data_client_detail_project = mysqli_fetch_assoc($query_client_detail_project);
+
+    //Update Project info
+      if (isset($_POST['update_project_info'])) {
+        $idj = $_GET['idj'];
+        $projectname = $_POST['projectname'];
+        $projectdescription = $_POST['projectdescription'];
+        $address = $_POST['address'];
+        $location = $_POST['lokasi'];
+        $phone = $_POST['phone'];
+        $email = $_POST['email'];
+        $companywebsite = $_POST['compweb'];
+        mysqli_query($conn, "UPDATE `job` SET `judul`='$projectname', `deskripsi`='$projectdescription', `address`='$address', `lokasi`='$location',
+          `phone`='$phone', `email`='$email', `compweb`='$companywebsite' WHERE `idj` ='$idj' ");
+
+      }
 
 
 

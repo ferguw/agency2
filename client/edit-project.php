@@ -793,7 +793,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <div class="tab-content pt-5">
                                         <!--begin::Tab Content-->
                                         <div class="tab-pane active" id="kt_apps_projects_view_tab_2" role="tabpanel">
-                                            <form class="form">
+                                            <form class="form" method="post">
                                                 <div class="row">
                                                     <div class="col-lg-9 col-xl-6 offset-xl-3">
                                                         <h3 class="font-size-h6 mb-5">Project Info:</h3>
@@ -804,13 +804,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <label class="col-xl-3 col-lg-3 col-form-label text-right">Project
                                                         Name</label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <input class="form-control form-control-lg form-control-solid"
+                                                        <input class="form-control form-control-lg form-control-solid" name="projectname"
                                                             type="text" value="<?php echo $data_client_detail_project['judul']; ?>" />
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-xl-3 col-lg-3 col-form-label text-right">Project
-                                                        Name</label>
+                                                        Description</label>
                                                     <div class="col-lg-9 col-xl-6">
                                                         <textarea class="form-control form-control-lg form-control-solid" name="projectdescription" rows="8" cols="80"><?php echo $data_client_detail_project['deskripsi']; ?></textarea>
                                                     </div>
@@ -837,14 +837,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <div class="form-group row">
                                                     <label class="col-xl-3 col-lg-3 col-form-label text-right">Address</label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <input class="form-control form-control-lg form-control-solid"
+                                                        <input class="form-control form-control-lg form-control-solid" name="address"
                                                             type="text" value="<?php echo $data_client_detail_project['address']; ?>" />
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-xl-3 col-lg-3 col-form-label text-right">Maps</label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <input class="form-control form-control-lg form-control-solid"
+                                                        <input class="form-control form-control-lg form-control-solid" name="lokasi"
                                                             type="text" value="<?php echo $data_client_detail_project['lokasi']; ?>" />
                                                     </div>
                                                 </div>
@@ -868,7 +868,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                     class="input-group-text"><i
                                                                         class="la la-phone"></i></span></div>
                                                             <input type="text"
-                                                                class="form-control form-control-lg form-control-solid"
+                                                                class="form-control form-control-lg form-control-solid" name="phone"
                                                                 value="<?php echo $data_client_detail_project['phone']; ?>" placeholder="Phone" />
                                                         </div>
                                                     </div>
@@ -882,7 +882,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             <div class="input-group-prepend"><span
                                                                     class="input-group-text"><i
                                                                         class="la la-at"></i></span></div>
-                                                            <input type="email"
+                                                            <input type="email" name="email"
                                                                 class="form-control form-control-lg form-control-solid"
                                                                 value="<?php echo $data_client_detail_project['email']; ?>" placeholder="Email" />
                                                         </div>
@@ -895,7 +895,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <div class="col-lg-9 col-xl-6">
                                                         <div class="input-group input-group-lg input-group-solid">
                                                             <input type="text"
-                                                                class="form-control form-control-lg form-control-solid"
+                                                                class="form-control form-control-lg form-control-solid" name="compweb"
                                                                 placeholder="http://example.com" value="<?php echo $data_client_detail_project['compweb']; ?>" />
                                                         </div>
                                                     </div>
@@ -903,8 +903,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <div class="d-flex justify-content-between border-top mt-5 pt-10">
                                                         <button type="submit"
                                                             class="btn btn-success font-weight-bold text-uppercase px-9 py-4"
-                                                            name="cekout">
-                                                            Cekout
+                                                            name="update_project_info">
+                                                            UPDATE
                                                         </button>
                                                 </div>
                                             </form>

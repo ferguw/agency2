@@ -495,7 +495,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                     </g>
                                                                 </svg>
                                                                 <!--end::Svg Icon--></span>
-                                                            <h3 class="wizard-title">Project Details</h3>
+                                                            <h3 class="wizard-title">What You Need</h3>
                                                         </div>
 
                                                     </div>
@@ -506,217 +506,25 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <div class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10">
                                             <div class="col-xl-12 col-xxl-7">
                                                 <!--begin::Form Wizard-->
-                                                <form class="form" action="client/add-project-cekout" id="kt_projects_add_form">
+                                                <form class="form" action="client/add-project" method="post" id="kt_projects_add_form">
                                                     <!--begin::Step 1-->
                                                     <div class="pb-5" data-wizard-type="step-content"
                                                         data-wizard-state="current">
-                                                        <div class="row">
-                                                            <div class="col-xl-12">
-                                                                <div class="form-group row">
-                                                                    <label
-                                                                        class="col-xl-3 col-lg-3 col-form-label">Project
-                                                                        Name</label>
-                                                                    <div class="col-lg-9 col-xl-9">
-                                                                        <input
-                                                                            class="form-control form-control-lg form-control-solid"
-                                                                            name="projectname" required
-                                                                            placeholder="Project Name" autocomplete="off" type="text">
-                                                                    </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-xl-3 col-lg-3 col-form-label text-right"></label>
+                                                            <div class="col-lg-9 col-xl-6">
+                                                                <div class="checkbox-list">
+                                                                    <label class="checkbox">
+                                                                        <input type="checkbox" value="SPG" name="need[]" >
+                                                                        <span></span>
+                                                                        SPG (Sales Promotion Girl)
+                                                                    </label>
+                                                                    <label class="checkbox">
+                                                                        <input type="checkbox" value="SPB" name="need[]" >
+                                                                        <span></span>
+                                                                        SPB (Sales Promotion Boy)
+                                                                    </label>
                                                                 </div>
-                                                                <div class="form-group row">
-                                                                    <label
-                                                                        class="col-xl-3 col-lg-3 col-form-label">Project
-                                                                        Description</label>
-                                                                    <div class="col-lg-9 col-xl-9">
-                                                                        <textarea name="projectdescription" required
-                                                                            placeholder="Description"
-                                                                            class="form-control form-control-lg form-control-solid"
-                                                                            rows="8" cols="80"></textarea>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <label
-                                                                        class="col-xl-3 col-lg-3 col-form-label">Contact
-                                                                        Phone</label>
-                                                                    <div class="col-lg-9 col-xl-9">
-                                                                        <div
-                                                                            class="input-group input-group-lg input-group-solid">
-                                                                            <div class="input-group-prepend"><span
-                                                                                    class="input-group-text"><i
-                                                                                        class="la la-phone"></i></span>
-                                                                            </div>
-                                                                            <input type="tel"
-                                                                                class="form-control form-control-lg form-control-solid"
-                                                                                name="phone" required
-                                                                                placeholder="081234567890" title="Input 12 Digit Phone Number"
-                                                                                pattern="[0-9]{12}" />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <label
-                                                                        class="col-xl-3 col-lg-3 col-form-label">Email
-                                                                        Address</label>
-                                                                    <div class="col-lg-9 col-xl-9">
-                                                                        <div
-                                                                            class="input-group input-group-lg input-group-solid">
-                                                                            <div class="input-group-prepend"><span
-                                                                                    class="input-group-text"><i
-                                                                                        class="la la-at"></i></span>
-                                                                            </div>
-                                                                            <input type="email"
-                                                                                class="form-control form-control-lg form-control-solid"
-                                                                                name="email" required autocomplete="off"
-                                                                                placeholder="example@mail.com" />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <label
-                                                                        class="col-xl-3 col-lg-3 col-form-label">Company
-                                                                        Website</label>
-                                                                    <div class="col-lg-9 col-xl-9">
-                                                                        <input
-                                                                            class="form-control form-control-lg form-control-solid"
-                                                                            name="companywebsite" type="url"
-                                                                            placeholder="http://example.com">
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="form-group row">
-                                                                    <label
-                                                                        class="col-xl-3 col-lg-3 col-form-label">Address</label>
-                                                                    <div class="col-lg-9 col-xl-9">
-                                                                        <input
-                                                                            class="form-control form-control-lg form-control-solid"
-                                                                            name="address" required
-                                                                            placeholder="Jl. Utara" type="text">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <label
-                                                                        class="col-xl-3 col-lg-3 col-form-label">City</label>
-                                                                    <div class="col-lg-9 col-xl-9">
-                                                                        <select name="city" required
-                                                                            class="form-control form-control-lg form-control-solid">
-                                                                            <option disabled value="">Select City
-                                                                            </option>
-                                                                            <option value="Banjarmasin">Banjarmasin
-                                                                            </option>
-                                                                            <option value="Banjarbaru">Banjarbaru
-                                                                            </option>
-                                                                            <option value="Banjar">Banjar</option>
-                                                                            <option value="Barito Kuala">Barito Kuala
-                                                                            </option>
-                                                                            <option value="Balangan">Balangan</option>
-                                                                            <option value="Hulu Sungai Utara">Hulu
-                                                                                Sungai Utara</option>
-                                                                            <option value="Hulu Sungai Tengah">Hulu
-                                                                                Sungai Tengah</option>
-                                                                            <option value="Hulu Sungai Selatan">Hulu
-                                                                                Sungai Selatan</option>
-                                                                            <option value="Kotabaru">Kotabaru</option>
-                                                                            <option value="Tabalong">Tabalong</option>
-                                                                            <option value="Tanah Bumbu">Tanah Bumbu
-                                                                            </option>
-                                                                            <option value="Tanah Laut">Tanah Laut
-                                                                            </option>
-                                                                            <option value="Tapin">Tapin</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <label class="col-xl-3 col-lg-3 col-form-label">Maps
-                                                                        Coordinates</label>
-                                                                    <div class="col-lg-9 col-xl-9">
-                                                                        <input
-                                                                            class="form-control form-control-lg form-control-solid"
-                                                                            name="location" required type="text" autocomplete="off"
-                                                                            placeholder="-3.3187897349614994, 114.59119085304802">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <label class="col-xl-3 col-lg-3 col-form-label">Periode</label>
-                                                                    <div class="col-xl-4">
-                                                                        <div class="form-group">
-                                                                            <Label>Date & Time Start</Label>
-                                                                            <input
-                                                                                class="form-control form-control-lg form-control-solid"
-                                                                                name="dtstart" required autocomplete="off"
-                                                                                type="datetime-local">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <div class="form-group">
-                                                                            <Label>Date & Time End</Label>
-                                                                            <input
-                                                                                class="form-control form-control-lg form-control-solid"
-                                                                                name="dtend" required autocomplete="off"
-                                                                                type="datetime-local">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <label class="col-xl-3 col-lg-3 col-form-label">Work
-                                                                        Day</label>
-                                                                    <div class="col-lg-9 col-xl-9">
-                                                                        <input
-                                                                            class="form-control form-control-lg form-control-solid"
-                                                                            name="workday" placeholder="Senin - Jumat" autocomplete="off"
-                                                                            required type="text">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <label
-                                                                        class="col-xl-3 col-lg-3 col-form-label">Number
-                                                                        of Days</label>
-                                                                    <div class="col-lg-9 col-xl-9">
-                                                                        <input
-                                                                            class="form-control form-control-lg form-control-solid"
-                                                                            name="numday" placeholder="10" required autocomplete="off"
-                                                                            type="number" min="0">
-                                                                    </div>
-                                                                </div>
-
-<?php
-  if (isset($_POST['need_button'])) {
-    $checked_arr = $_POST['need'];
-    $count = count($checked_arr);
-    foreach($_POST['need'] as $selected) {
-    echo "<div class='form-group row'>
-        <label
-            class='col-xl-3 col-lg-3 col-form-label'>Salary <b>$selected</b>
-            Per Day</label>
-        <div class='col-lg-9 col-xl-9'>
-            <div
-                class='input-group input-group-lg input-group-solid'>
-                <div class='input-group-prepend'><span
-                        class='input-group-text'><i
-                            class='la'>Rp</i></span>
-                </div>
-                <input type='number'
-                    class='form-control form-control-lg form-control-solid'
-                    name='salary' required autocomplete='off'
-                    placeholder='1000000' />
-            </div>
-        </div>
-    </div>
-    <div class='form-group row'>
-        <label
-            class='col-xl-3 col-lg-3 col-form-label'>Amount
-            of $selected</label>
-        <div class='col-lg-9 col-xl-9'>
-            <input
-                class='form-control form-control-lg form-control-solid'
-                name='amounttalent' placeholder='10' autocomplete='off'
-                required type='number' min='0'>
-        </div>
-    </div>";
-    }
-}
- ?>
-
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -727,8 +535,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         <div>
                                                             <button type="submit"
                                                                 class="btn btn-success font-weight-bold text-uppercase px-9 py-4"
-                                                                name="cekout">
-                                                                Cekout
+                                                                name="need_button">
+                                                                Submit
                                                             </button>
                                                         </div>
                                                     </div>
