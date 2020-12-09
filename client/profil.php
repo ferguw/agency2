@@ -17,7 +17,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <head>
     <base href="../">
     <meta charset="utf-8" />
-    <title>Talent | Dashboard</title>
+    <title>Client | Dashboard</title>
     <meta name="description" content="Updates and statistics" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -417,7 +417,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     class="header-menu header-menu-mobile  header-menu-layout-default ">
                                     <!--begin::Nav-->
                                     <ul class="menu-nav ">
-                                        <li class="menu-item menu-item-submenu menu-item-rel"><a href="talent"
+                                        <li class="menu-item menu-item-submenu menu-item-rel"><a href="client"
                                                 class="menu-link "><span class="menu-text">Dashboard</span></a>
                                         </li>
                                         <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click"
@@ -427,12 +427,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                                 <ul class="menu-subnav">
                                                     <li class="menu-item  menu-item-submenu">
-                                                        <a href="talent/tawaran-job" class="menu-link">
+                                                        <a href="client/tawaran-job" class="menu-link">
                                                             <span class="menu-text">Tawaran</span>
                                                         </a>
                                                     </li>
                                                     <li class="menu-item  menu-item-submenu">
-                                                        <a href="talent/list-job" class="menu-link">
+                                                        <a href="client/list-job" class="menu-link">
                                                             <span class="menu-text">List Job</span>
                                                         </a>
                                                     </li>
@@ -443,12 +443,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </li>
 
                                         <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click"
-                                            aria-haspopup="true"><a href="talent/report-job" class="menu-link"><span
+                                            aria-haspopup="true"><a href="client/report-job" class="menu-link"><span
                                                     class="menu-text">Report</span><span class="menu-desc"></span><i
                                                     class="menu-arrow"></i></a>
                                         </li>
                                         <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click"
-                                            aria-haspopup="true"><a href="talent/history" class="menu-link"><span
+                                            aria-haspopup="true"><a href="client/history" class="menu-link"><span
                                                     class="menu-text">History</span><span class="menu-desc"></span><i
                                                     class="menu-arrow"></i></a>
                                         </li>
@@ -506,7 +506,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </div>
 
                                                 <div class="my-lg-0 my-3">
-                                                    <a href="talent/profil"
+                                                    <a href="client/profil"
                                                         class="btn btn-sm btn-info font-weight-bolder text-uppercase mr-3">Edit
                                                         Profil</a>
                                                 </div>
@@ -662,7 +662,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     </div>
                                                 </div>
                                                 <div class="col-6 text-right">
-                                                    <a href="talent/profil"
+                                                    <a href="client/profil"
                                                         class="btn btn-sm btn-info font-weight-bolder text-uppercase mr-3">Manage</a>
                                                 </div>
                                             </div>
@@ -709,7 +709,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     </div>
                                                 </div>
                                                 <div class="col-6 text-right">
-                                                    <a href="talent/profil"
+                                                    <a href="client/profil"
                                                         class="btn btn-sm btn-info font-weight-bolder text-uppercase mr-3">Add
                                                         Edication</a>
                                                 </div>
@@ -830,7 +830,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </h3>
                                 </div>
                                 <div class="col-6 text-right">
-                                    <a href="talent/profil"
+                                    <a href="client/profil"
                                         class="btn btn-sm btn-info font-weight-bolder text-uppercase">Edit Skill</a>
                                 </div>
                             </div>
@@ -985,7 +985,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <!-- begin::btn -->
                             <div class="row justify-content-center style=" width: 100%;">
                                 <div class="col-12">
-                                    <a href="talent/profil" class="btn btn-pj btn-info">Get Certified</a>
+                                    <a href="client/profil" class="btn btn-pj btn-info">Get Certified</a>
                                 </div>
                             </div>
                             <!-- end::btn -->
@@ -1471,7 +1471,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <i class="symbol-badge bg-success"></i>
                 </div>
                 <div class="d-flex flex-column">
-                    <a href="talent/profil" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">
+                    <a href="client/profil" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">
                         James Jones
                     </a>
                     <div class="text-muted mt-1">
@@ -1512,7 +1512,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <!--begin::Nav-->
             <div class="navi navi-spacer-x-0 p-0">
                 <!--begin::Item-->
-                <a href="talent/profil" class="navi-item">
+                <a href="clientF/profil" class="navi-item">
                     <div class="navi-link">
                         <div class="symbol symbol-40 bg-light mr-3">
                             <div class="symbol-label">

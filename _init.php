@@ -54,11 +54,10 @@
     //Sign-up Client
         if (isset($_POST['signup_client'])) {
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
-            $fname = $_POST['fname'];
-            $lname = $_POST ['lname'];
+            $fname = $_POST['name'];
             $email = $_POST['email'];
             $user_client = $email;
-            mysqli_query($conn, "INSERT INTO client (`idc`,`fname`,`lname`,`username`,`password`,`email`,`deskripsi`)
+            mysqli_query($conn, "INSERT INTO client (`idc`,`fname`,`username`,`password`,`email`,`deskripsi`)
             VALUES (NULL, '$fname','$lname','$user_client','$password','$email','Input Deskripsi ...')");
             header('location:signin-client');
         }
@@ -71,7 +70,7 @@
             $lname = $_POST ['lname'];
             $email = $_POST['email'];
             $user_talent= $email;
-            mysqli_query($conn, "INSERT INTO talent (`idt`,`fname`,`lname`,`username`,`password`,`email`,`deskripsi`)
+            mysqli_query($conn, "INSERT INTO talent (`idt`,`name`,`username`,`password`,`email`,`deskripsi`);
             VALUES (NULL, '$fname','$lname','$user_talent','$password','$email','Input Deskripsi ...')");
             header('location:signin-talent');
         }
@@ -126,15 +125,6 @@
         $idc = $_SESSION['idc'];
         $query_client_list_project = mysqli_query($conn, "SELECT * FROM job WHERE idc = '$idc'");
 
-    //Client What You Need
-      if (isset($_POST['need_button'])) {
-        $checked_arr = $_POST['need'];
-        $count = count($checked_arr);
-        echo "There are ".$count." checkboxe(s) are checked";
-        foreach($_POST['need'] as $selected) {
-        echo "<p>".$selected ."</p>";
-        }
-      }
 
     //Client Project Send
         if(isset($_POST['sendproject'])){
@@ -151,14 +141,15 @@
           $dtend = date("Y-m-d H:i:s", strtotime($_POST["dtend"]));
           $workday = $_POST['workday'];
           $numday = $_POST['numday'];
-          $salary = $_POST['salary'];
-          $amounttalent = $_POST['amounttalent'];
-          $grandtotal = $numday * $salary * $amounttalent;
+          $grandtotal = 0;
             mysqli_query($conn, "INSERT INTO job (`idj`, `idc`, `judul`, `deskripsi`, `phone`, `email`, `start`, `end`,
-               `lokasi`, `compweb`, `address`, `city`, `workday`, `numday`, `salary`, `talentamout`, `grandtotal`, `status`)
+               `lokasi`, `compweb`, `address`, `city`, `workday`, `numday`, `grandtotal`, `status`)
                 VALUES (NULL, '$idc', '$projectname', '$projectdescription', '$phone', '$email', '$dtstart', '$dtend', '$location', '$companywebsite',
-                  '$address', '$city', '$workday', '$numday', '$salary', '$amounttalent', '$grandtotal', 'waiting')");
-          header('location:list-project');
+                  '$address', '$city', '$workday', '$numday', '$grandtotal', 'pending')");
+            $query_add_project_cari = mysqli_query($conn, "SELECT * FROM job WHERE idc='$idc' AND judul='$projectname'");
+            $data_add_project_cari = mysqli_fetch_assoc($query_add_project_cari);
+            $idj = $data_add_project_cari['idj'];
+          header("location:add-project-cekout?idj=$idj");
 
         }
 
@@ -181,6 +172,10 @@
           `phone`='$phone', `email`='$email', `compweb`='$companywebsite' WHERE `idj` ='$idj' ");
 
       }
+
+    //Client add project cekout
+      $query_show_project_on_cekout = mysqli_query($conn, "SELECT * FROM job WHERE idj = '$idj' ");
+      $data_show_project_on_cekout = mysqli_fetch_assoc($query_show_project_on_cekout);
 
 
 

@@ -21,7 +21,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <head>
     <base href="../">
     <meta charset="utf-8" />
-    <title>client | Dashboard</title>
+    <title>Client | Dashboard</title>
     <meta name="description" content="Updates and statistics" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 

@@ -3,18 +3,7 @@
   include("_init.php");
 
  ?>
-<!--
-Template Name: Metronic - Bootstrap 4 HTML, React, Angular 9 & VueJS Admin Dashboard Theme
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: https://1.envato.market/EA4JP
-Renew Support: https://1.envato.market/EA4JP
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
+ 
 <html lang="en">
 <!--begin::Head-->
 
@@ -98,17 +87,11 @@ License: You must have a valid license purchased only from themeforest(the above
 
                             <!--begin::Form group-->
                             <div class="form-group">
-                                <label class="font-size-h6 font-weight-bolder text-dark">First Name</label>
+                                <label class="font-size-h6 font-weight-bolder text-dark">Full Name</label>
                                 <input class="form-control h-auto py-7 px-6 rounded-lg border-0" type="text"
-                                    name="fname" autocomplete="on" />
+                                    name="name" autocomplete="on" />
                             </div>
                             <!--end::Form group-->
-
-                            <div class="form-group">
-                                <label class="font-size-h6 font-weight-bolder text-dark">Last Name</label>
-                                <input class="form-control h-auto py-7 px-6 rounded-lg border-0" type="text"
-                                    name="lname" autocomplete="on" />
-                            </div>
 
                             <div class="form-group">
                                 <label class="font-size-h6 font-weight-bolder text-dark">Email</label>
