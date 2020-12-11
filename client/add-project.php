@@ -407,7 +407,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <div class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10">
                                             <div class="col-xl-12 col-xxl-7">
                                                 <!--begin::Form Wizard-->
-                                                <form class="form" method="POST" action="/client/add-project-cekout" id="kt_projects_add_form">
+                                                <form class="form" action="client/add-project-cekout" id="kt_projects_add_form">
                                                     <!--begin::Step 1-->
                                                     <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
                                                         <div class="row">
@@ -532,7 +532,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                 <div class="form-group row" id="need">
                                                                     <label class="col-xl-3 col-lg-3 col-form-label">What You Need</label>
                                                                     <div class="col-lg-9 col-xl-9">
-                                                                        <select name="type[]" required class="form-control form-control-lg form-control-solid">
+                                                                        <select name="talenttype[]" required class="form-control form-control-lg form-control-solid">
                                                                             <option disabled value="">Select Talent Type</option>
                                                                             <option value="SPG">SPG (Sales Promotion Girl)</option>
                                                                             <option value="SPB">SPB (Sales Promotion Boy)</option>
@@ -565,7 +565,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             <button class="btn btn-info font-weight-bold text-uppercase px-9 py-4" id="tambah-type">Need More Talent</button>
                                                         </div>
                                                         <div>
-                                                            <button type="submit" class="btn btn-danger font-weight-bold text-uppercase px-9 py-4" name="add_project_next">
+                                                            <button type="submit" class="btn btn-danger font-weight-bold text-uppercase px-9 py-4">
                                                                 Cekout
                                                             </button>
                                                         </div>
@@ -2136,7 +2136,7 @@ License: You must have a valid license purchased only from themeforest(the above
             html += '<div class="form-group row" id="need">';
             html += '<label class="col-xl-3 col-lg-3 col-form-label">What You Need</label>';
             html += '<div class="col-lg-9 col-xl-9">';
-            html += '<select name="type" required class="form-control form-control-lg form-control-solid">';
+            html += '<select name="talenttype[]" required class="form-control form-control-lg form-control-solid">';
             html += '<option disabled value="">Select Talent Type</option>';
             html += '<option value="SPG">SPG (Sales Promotion Girl)</option>';
             html += '<option value="SPB">SPB (Sales Promotion Boy)</option>';

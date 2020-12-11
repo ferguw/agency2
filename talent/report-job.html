@@ -1020,13 +1020,19 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
                                 <span class="card-label font-weight-bolder text-dark">Tawaran Project</span>
-                                <span class="text-muted mt-3 font-weight-bold font-size-sm">5 Project Menunggu</span>
+                                <span class="text-muted mt-3 font-weight-bold font-size-sm">2 Project Menunggu</span>
                             </h3>
                         </div>
                         <!--end::Header-->
 
                         <!--begin::Body-->
                         <div class="card-body pt-8">
+<?php
+    while($data_tawaran_project_notif = mysqli_fetch_assoc($query_tawaran_project_notif)) {
+        $idj_tawaran_notif = $data_tawaran_project_notif['idj'];
+        $query_tawaran_notif_cari = mysqli_query($conn, "SELECT * FROM job WHERE idj = '$idj_tawaran_notif'");
+        $data_tawaran_notif_cari = mysqli_fetch_assoc($query_tawaran_notif_cari);
+?>
                             <!--begin::Item-->
                             <div class="d-flex align-items-center mb-10">
                                 <!--begin::Symbol-->
@@ -1044,72 +1050,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <!--end::Text-->
                             </div>
                             <!--end::Item-->
+<?php }; ?>
                             <!--begin::Item-->
                             <div class="d-flex align-items-center mb-10">
-                                <!--begin::Symbol-->
-                                <div class="symbol symbol-light-primary mr-5 s-avatar">
-                                    <img alt="f-klien" src="assets/media/users/100_3.jpg" width="100%" />
-                                </div>
-                                <!--end::Symbol-->
-
-                                <!--begin::Text-->
-                                <div class="d-flex flex-column font-weight-bold">
-                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Seminar Sukses
-                                        Bersama</a>
-                                    <span class="text-muted">PT. Lipsum</span>
-                                </div>
-                                <!--end::Text-->
-                            </div>
-                            <!--end::Item-->
-                            <!--begin::Item-->
-                            <div class="d-flex align-items-center mb-10">
-                                <!--begin::Symbol-->
-                                <div class="symbol symbol-light-primary mr-5 s-avatar">
-                                    <img alt="f-klien" src="assets/media/users/100_3.jpg" width="100%" />
-                                </div>
-                                <!--end::Symbol-->
-
-                                <!--begin::Text-->
-                                <div class="d-flex flex-column font-weight-bold">
-                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Seminar Sukses
-                                        Bersama</a>
-                                    <span class="text-muted">PT. Lipsum</span>
-                                </div>
-                                <!--end::Text-->
-                            </div>
-                            <!--end::Item-->
-                            <!--begin::Item-->
-                            <div class="d-flex align-items-center mb-10">
-                                <!--begin::Symbol-->
-                                <div class="symbol symbol-light-primary mr-5 s-avatar">
-                                    <img alt="f-klien" src="assets/media/users/100_3.jpg" width="100%" />
-                                </div>
-                                <!--end::Symbol-->
-
-                                <!--begin::Text-->
-                                <div class="d-flex flex-column font-weight-bold">
-                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Seminar Sukses
-                                        Bersama</a>
-                                    <span class="text-muted">PT. Lipsum</span>
-                                </div>
-                                <!--end::Text-->
-                            </div>
-                            <!--end::Item-->
-                            <!--begin::Item-->
-                            <div class="d-flex align-items-center mb-10">
-                                <!--begin::Symbol-->
-                                <div class="symbol symbol-light-primary mr-5 s-avatar">
-                                    <img alt="f-klien" src="assets/media/users/100_3.jpg" width="100%" />
-                                </div>
-                                <!--end::Symbol-->
-
-                                <!--begin::Text-->
-                                <div class="d-flex flex-column font-weight-bold">
-                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Seminar Sukses
-                                        Bersama</a>
-                                    <span class="text-muted">PT. Lipsum</span>
-                                </div>
-                                <!--end::Text-->
+                                <div class="col-12 text-center">
+                                     <a href="talent/tawaran-job" class="btn btn-pj btn-light-primary">More</a>
+                                 </div>
                             </div>
                             <!--end::Item-->
                         </div>

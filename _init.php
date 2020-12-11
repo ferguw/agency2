@@ -141,7 +141,7 @@
           $dtend = date("Y-m-d H:i:s", strtotime($_POST["dtend"]));
           $workday = $_POST['workday'];
           $numday = $_POST['numday'];
-          $grandtotal = 0;
+          $grandtotal = $_POST['grandtotal'];
             mysqli_query($conn, "INSERT INTO job (`idj`, `idc`, `judul`, `deskripsi`, `phone`, `email`, `start`, `end`,
                `lokasi`, `compweb`, `address`, `city`, `workday`, `numday`, `grandtotal`, `status`)
                 VALUES (NULL, '$idc', '$projectname', '$projectdescription', '$phone', '$email', '$dtstart', '$dtend', '$location', '$companywebsite',

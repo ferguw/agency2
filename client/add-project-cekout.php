@@ -416,7 +416,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                     <label class="col-xl-3 col-lg-3 col-form-label">Project
                                                                         Name</label>
                                                                     <div class="col-lg-9 col-xl-9">
-                                                                        <input class="form-control form-control-lg form-control-solid" placeholder="Project Name" name="projectname" readonly value="<?php echo $data_show_project_on_cekout['judul']; ?>" type="text">
+                                                                        <input class="form-control form-control-lg form-control-solid" placeholder="Project Name" name="projectname" readonly value="<?php echo $_GET['projectname']; ?>" type="text">
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
@@ -424,13 +424,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                     <div class="col-xl-4">
                                                                         <div class="form-group">
                                                                             <Label>Date & Time Start</Label>
-                                                                            <input class="form-control form-control-lg form-control-solid" readonly name="dtstart" value="<?php echo date("Y-m-d\TH:i:s", strtotime($data_show_project_on_cekout["start"])); ?>" type="datetime-local">
+                                                                            <input class="form-control form-control-lg form-control-solid" readonly name="dtstart" value="<?php echo $_GET['dtstart']; ?>" type="datetime-local">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xl-4">
                                                                         <div class="form-group">
                                                                             <Label>Date & Time End</Label>
-                                                                            <input class="form-control form-control-lg form-control-solid" readonly name="dtend" value="<?php echo date("Y-m-d\TH:i:s", strtotime($data_show_project_on_cekout["end"])); ?>" type="datetime-local">
+                                                                            <input class="form-control form-control-lg form-control-solid" readonly name="dtend" value="<?php echo $_GET['dtend']; ?>" type="datetime-local">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -438,60 +438,87 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                     <label class="col-xl-3 col-lg-3 col-form-label">Number
                                                                         of Days</label>
                                                                     <div class="col-lg-9 col-xl-9">
-                                                                        <input class="form-control form-control-lg form-control-solid" readonly name="numday" placeholder="10" value="<?php echo $data_show_project_on_cekout['numday']; ?>" type="number" min="0">
+                                                                        <input class="form-control form-control-lg form-control-solid" readonly name="numday" placeholder="10" value="<?php echo $_GET['numday']; ?>" type="number" min="0">
                                                                     </div>
                                                                 </div>
-                                                                <div class="form-group row">
-                                                                    <label class="col-xl-3 col-lg-3 col-form-label">Salary
-                                                                        Per Day</label>
-                                                                    <div class="col-lg-9 col-xl-9">
-                                                                        <div class="input-group input-group-lg input-group-solid">
-                                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="la">Rp</i></span>
+
+                                                                <?php
+                                                                $numday = $_GET['numday'];
+                                                                $talenttype = $_GET['talenttype'];
+                                                                $talentamout = $_GET['talentamout'];
+                                                                $salary = $_GET['salary'];
+                                                                $jumlah = count($salary);
+
+                                                                for ($i = 0; $i < $jumlah; $i++) {
+                                                                    $salaryperday[$i] = $talentamout[$i] * $salary[$i];
+                                                                    if (isset($_POST['sendproject'])) {
+                                                                        mysqli_query($conn, "INSERT INTO job_req (`idjr`, `idj`, `numtalent`, `salary`, `type`) VALUES (NULL, '2', '$talentamout[$i]', '$salary[$i]', '$talenttype[$i]')");
+                                                                    }
+                                                                    echo "
+                                                                            <div class='form-group row'>
+                                                                                <label class='col-xl-3 col-lg-3 col-form-label'>Talent Type</label>
+                                                                                <div class='col-lg-9 col-xl-9'>
+                                                                                    <div class='input-group input-group-lg input-group-solid'>
+                                                                                        <input type='text' class='form-control form-control-lg form-control-solid' readonly name='talenttype[]' value='$talenttype[$i]'' />
+                                                                                    </div>
+                                                                                </div>
                                                                             </div>
-                                                                            <input type="text" class="form-control form-control-lg form-control-solid" readonly name="salary" value="<?php echo $_GET['salary']; ?>" placeholder="1000000" />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <label class="col-xl-3 col-lg-3 col-form-label">Amount
-                                                                        of Talents</label>
-                                                                    <div class="col-lg-9 col-xl-9">
-                                                                        <input class="form-control form-control-lg form-control-solid" readonly name="amounttalent" placeholder="10" value="<?php echo $_GET['amounttalent']; ?>" type="number" min="0">
-                                                                    </div>
-                                                                </div>
+                                                                            <div class='form-group row'>
+                                                                                <label class='col-xl-3 col-lg-3 col-form-label'>Salary
+                                                                                    Per Day</label>
+                                                                                <div class='col-lg-9 col-xl-9'>
+                                                                                    <div class='input-group input-group-lg input-group-solid'>
+                                                                                        <div class='input-group-prepend'><span class='input-group-text'><i class='la'>Rp</i></span>
+                                                                                        </div>
+                                                                                        <input type='text' class='form-control form-control-lg form-control-solid' readonly name='salary' value='$salary[$i]' />
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class='form-group row'>
+                                                                                <label class='col-xl-3 col-lg-3 col-form-label'>Amount
+                                                                                    of Talents</label>
+                                                                                <div class='col-lg-9 col-xl-9'>
+                                                                                    <input class='form-control form-control-lg form-control-solid' readonly name='amounttalent' placeholder='10' value='$talentamout[$i]' type='number' min='0'>
+                                                                                </div>
+                                                                            </div>
+                                                                        ";
+                                                                }
+
+                                                                ?>
+
+
                                                                 <hr>
-                                                                <div class="form-group row">
-                                                                    <label class="col-xl-3 col-lg-3 col-form-label">Grad Total</label>
-                                                                    <div class="col-lg-9 col-xl-9">
-                                                                        <div class="input-group input-group-lg input-group-solid">
-                                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="la">Rp</i></span>
+                                                                <div class='form-group row'>
+                                                                    <label class='col-xl-3 col-lg-3 col-form-label'>Grand Total</label>
+                                                                    <div class='col-lg-9 col-xl-9'>
+                                                                        <div class='input-group input-group-lg input-group-solid'>
+                                                                            <div class='input-group-prepend'><span class='input-group-text'><i class='la'>Rp</i></span>
                                                                             </div>
-                                                                            <?php $numday = $_GET['numday'];
-                                                                            $salary = $_GET['salary'];
-                                                                            $amounttalent = $_GET['amounttalent'];
-                                                                            $grandtotal = $numday * $salary * $amounttalent; ?>
-                                                                            <input type="text" class="form-control form-control-lg form-control-solid" readonly value="<?php echo $grandtotal; ?>" placeholder="1000000" />
+                                                                            <?php
+                                                                            $gt = $numday * array_sum($salaryperday);
+                                                                            ?>
+                                                                            <input type='text' class='form-control form-control-lg form-control-solid' readonly name='grandtotal' value='<?php echo $gt; ?>' />
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <!--end::Step 1-->
+                                                        <!--end::Step 1-->
+                                                        <input type="text" hidden name="phone" value="<?php echo $_GET['phone']; ?>">
+                                                        <input type="text" hidden name="email" value="<?php echo $_GET['email']; ?>">
+                                                        <input type="text" hidden name="projectdescription" value="<?php echo $_GET['projectdescription']; ?>">
+                                                        <input type="text" hidden name="companywebsite" value="<?php echo $_GET['companywebsite']; ?>">
+                                                        <input type="text" hidden name="city" value="<?php echo $_GET['city']; ?>">
+                                                        <input type="text" hidden name="location" value="<?php echo $_GET['location']; ?>">
+                                                        <input type="text" hidden name="workday" value="<?php echo $_GET['workday']; ?>">
 
-                                                    <input type="text" hidden name="projectdescription" value="<?php echo $_GET['projectdescription']; ?>">
-                                                    <input type="text" hidden name="companywebsite" value="<?php echo $_GET['companywebsite']; ?>">
-                                                    <input type="text" hidden name="city" value="<?php echo $_GET['city']; ?>">
-                                                    <input type="text" hidden name="location" value="<?php echo $_GET['location']; ?>">
-                                                    <input type="text" hidden name="workday" value="<?php echo $_GET['workday']; ?>">
-
-                                                    <!--begin::Actions-->
-                                                    <div>
-                                                        <button type="submit" class="btn btn-success font-weight-bold text-uppercase px-9 py-4" name="sendproject">
-                                                            Submit
-                                                        </button>
-                                                    </div>
-                                                    <!--end::Actions-->
+                                                        <!--begin::Actions-->
+                                                        <div>
+                                                            <button type="submit" class="btn btn-success font-weight-bold text-uppercase px-9 py-4" name="sendproject">
+                                                                Submit
+                                                            </button>
+                                                        </div>
+                                                        <!--end::Actions-->
                                                 </form>
                                                 <!--end::Form Wizard-->
                                             </div>
@@ -510,7 +537,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <!--end::Wrapper-->
 
             <!--begin::Aside Secondary-->
-            <div class="sidebar sidebar-left d-flex flex-row-auto flex-column " id="kt_sidebar">
+            <div class="sidebar sidebar-left d-flex flex-row-auto flex-column" id="kt_sidebar">
                 <!--begin::Aside Secondary Header-->
                 <div class="sidebar-header flex-column-auto pt-9 pb-5 px-5 px-lg-10">
                     <!--begin::Toolbar-->
