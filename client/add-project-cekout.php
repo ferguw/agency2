@@ -419,6 +419,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                         <input class="form-control form-control-lg form-control-solid" placeholder="Project Name" name="projectname" readonly value="<?php echo $_GET['projectname']; ?>" type="text">
                                                                     </div>
                                                                 </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-xl-3 col-lg-3 col-form-label">Company
+                                                                        Name</label>
+                                                                    <div class="col-lg-9 col-xl-9">
+                                                                        <input class="form-control form-control-lg form-control-solid" name="compname" readonly value="<?php echo $_GET['compname']; ?>" type="text">
+                                                                    </div>
+                                                                </div>
                                                                 <div class="row">
                                                                     <label class="col-xl-3 col-lg-3 col-form-label">Periode</label>
                                                                     <div class="col-xl-4">
@@ -484,19 +491,40 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                         ";
                                                                 }
 
+                                                                $totalsalary = $numday * array_sum($salaryperday);
+                                                                $feegawiae = 0.1 * $totalsalary;
+                                                                $gt = $feegawiae + $totalsalary;
+
                                                                 ?>
 
 
                                                                 <hr>
+                                                                <div class='form-group row'>
+                                                                    <label class='col-xl-3 col-lg-3 col-form-label'>Total Salary</label>
+                                                                    <div class='col-lg-9 col-xl-9'>
+                                                                        <div class='input-group input-group-lg input-group-solid'>
+                                                                            <div class='input-group-prepend'><span class='input-group-text'><i class='la'>Rp</i></span>
+                                                                            </div>
+                                                                            <input class='form-control form-control-lg form-control-solid' name="total_salary" readonly value="<?php echo $totalsalary; ?>" type='number'>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class='form-group row'>
+                                                                    <label class='col-xl-3 col-lg-3 col-form-label'>Fee Gawiae</label>
+                                                                    <div class='col-lg-9 col-xl-9'>
+                                                                        <div class='input-group input-group-lg input-group-solid'>
+                                                                            <div class='input-group-prepend'><span class='input-group-text'><i class='la'>10% Rp</i></span>
+                                                                            </div>
+                                                                            <input class='form-control form-control-lg form-control-solid' readonly name='fee_gawiae' value='<?php echo $feegawiae; ?>' type='number'>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                                 <div class='form-group row'>
                                                                     <label class='col-xl-3 col-lg-3 col-form-label'>Grand Total</label>
                                                                     <div class='col-lg-9 col-xl-9'>
                                                                         <div class='input-group input-group-lg input-group-solid'>
                                                                             <div class='input-group-prepend'><span class='input-group-text'><i class='la'>Rp</i></span>
                                                                             </div>
-                                                                            <?php
-                                                                            $gt = $numday * array_sum($salaryperday);
-                                                                            ?>
                                                                             <input type='text' class='form-control form-control-lg form-control-solid' readonly name='grandtotal' value='<?php echo $gt; ?>' />
                                                                         </div>
                                                                     </div>
@@ -505,6 +533,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         </div>
                                                         <!--end::Step 1-->
                                                         <input type="text" hidden name="phone" value="<?php echo $_GET['phone']; ?>">
+                                                        <input type="text" hidden name="address" value="<?php echo $_GET['address']; ?>">
                                                         <input type="text" hidden name="email" value="<?php echo $_GET['email']; ?>">
                                                         <input type="text" hidden name="projectdescription" value="<?php echo $_GET['projectdescription']; ?>">
                                                         <input type="text" hidden name="companywebsite" value="<?php echo $_GET['companywebsite']; ?>">
@@ -519,6 +548,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </button>
                                                         </div>
                                                         <!--end::Actions-->
+                                                    </div>
                                                 </form>
                                                 <!--end::Form Wizard-->
                                             </div>
@@ -535,7 +565,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!--end::Content-->
             </div>
             <!--end::Wrapper-->
-
+ 
             <!--begin::Aside Secondary-->
             <div class="sidebar sidebar-left d-flex flex-row-auto flex-column" id="kt_sidebar">
                 <!--begin::Aside Secondary Header-->

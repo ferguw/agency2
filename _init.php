@@ -53,26 +53,43 @@
 
     //Sign-up Client
         if (isset($_POST['signup_client'])) {
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
-            $fname = $_POST['name'];
-            $email = $_POST['email'];
-            $user_client = $email;
-            mysqli_query($conn, "INSERT INTO client (`idc`,`fname`,`username`,`password`,`email`,`deskripsi`)
-            VALUES (NULL, '$fname','$lname','$user_client','$password','$email','Input Deskripsi ...')");
-            header('location:signin-client');
-        }
+            $name_client = $_POST['name_client'];
+            $username_client = $_POST['email_client'];
+            $password_client = password_hash($_POST['password_client'], PASSWORD_DEFAULT, $options);
+            $email_client = $username_client;
+
+            $query_signup_client = "INSERT INTO client (`name`, `username`, `password`, `email`, `deskripsi`) 
+            VALUES ('$name_client', '$username_client','$password_client','$email_client','Input Deskripsi ...')"; 
+            
+            $tes_client = mysqli_query($conn, $query_signup_client);
+
+            if ($tes_client){
+                echo "<script>alert('Berhasil Menambahkan Data, Silahkan Login');window.location='signin-client.php'</script>";
+            }
+            else{
+                echo "<script>alert('Gagal Menambahkan Data, Silahkan Coba Lagi');window.location='signup-client.php'</script>";
+            }
+          }
 
 
     //Sign-up Talent
         if (isset($_POST['signup_talent'])) {
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
-            $fname = $_POST['fname'];
-            $lname = $_POST ['lname'];
-            $email = $_POST['email'];
-            $user_talent= $email;
-            mysqli_query($conn, "INSERT INTO talent (`idt`,`name`,`username`,`password`,`email`,`deskripsi`);
-            VALUES (NULL, '$fname','$lname','$user_talent','$password','$email','Input Deskripsi ...')");
-            header('location:signin-talent');
+            $name_talent = $_POST['name_talent'];
+            $username_talent = $_POST['email_talent'];
+            $password_talent = password_hash($_POST['password_talent'], PASSWORD_DEFAULT, $options);
+            $email_talent = $username_talent;
+            
+            $query_signup_talent = "INSERT INTO talent (`name`, `username`, `password`, `email`, `deskripsi`)
+            VALUES ('$name_talent','$username_talent','$password_talent','$email_talent','Input Deskripsi ...')";
+
+            $tes_talent = mysqli_query($conn, $query_signup_talent);
+
+            if ($tes_talent){
+                echo "<script>alert('Berhasil Menambahkan Data, Silahkan Login');window.location='signin-talent.php'</script>";
+            }
+            else{
+                echo "<script>alert('Gagal Menambahkan Data, Silahkan Coba Lagi');window.location='signup-talent.php'</script>";
+            }
         }
 
     //Talent Notifikasi
@@ -133,6 +150,7 @@
           $projectdescription = $_POST['projectdescription'];
           $phone = $_POST['phone'];
           $email = $_POST['email'];
+          $compname = $_POST['compname'];
           $companywebsite = $_POST['companywebsite'];
           $address = $_POST['address'];
           $city = $_POST['city'];
@@ -141,11 +159,13 @@
           $dtend = date("Y-m-d H:i:s", strtotime($_POST["dtend"]));
           $workday = $_POST['workday'];
           $numday = $_POST['numday'];
+          $total_salary = $_POST['total_salary'];
+          $fee_gawiae = $_POST['fee_gawiae'];
           $grandtotal = $_POST['grandtotal'];
             mysqli_query($conn, "INSERT INTO job (`idj`, `idc`, `judul`, `deskripsi`, `phone`, `email`, `start`, `end`,
-               `lokasi`, `compweb`, `address`, `city`, `workday`, `numday`, `grandtotal`, `status`)
-                VALUES (NULL, '$idc', '$projectname', '$projectdescription', '$phone', '$email', '$dtstart', '$dtend', '$location', '$companywebsite',
-                  '$address', '$city', '$workday', '$numday', '$grandtotal', 'pending')");
+               `lokasi`, `comp`, `compweb`, `address`, `city`, `workday`, `numday`, `total_salary`, `fee_gawiae`, `grandtotal`, `status`)
+                VALUES (NULL, '$idc', '$projectname', '$projectdescription', '$phone', '$email', '$dtstart', '$dtend', '$location', '$compname', '$companywebsite',
+                  '$address', '$city', '$workday', '$numday', '$total_salary', '$fee_gawiae', '$grandtotal', 'pending')");
             $query_add_project_cari = mysqli_query($conn, "SELECT * FROM job WHERE idc='$idc' AND judul='$projectname'");
             $data_add_project_cari = mysqli_fetch_assoc($query_add_project_cari);
             $idj = $data_add_project_cari['idj'];

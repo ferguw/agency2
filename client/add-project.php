@@ -449,13 +449,18 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
+                                                                    <label class="col-xl-3 col-lg-3 col-form-label">Company Name</label>
+                                                                    <div class="col-lg-9 col-xl-9">
+                                                                        <input class="form-control form-control-lg form-control-solid" name="compname" required placeholder="PT.Example" type="text">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
                                                                     <label class="col-xl-3 col-lg-3 col-form-label">Company
                                                                         Website</label>
                                                                     <div class="col-lg-9 col-xl-9">
                                                                         <input class="form-control form-control-lg form-control-solid" name="companywebsite" type="url" placeholder="http://example.com">
                                                                     </div>
                                                                 </div>
-
                                                                 <div class="form-group row">
                                                                     <label class="col-xl-3 col-lg-3 col-form-label">Address</label>
                                                                     <div class="col-lg-9 col-xl-9">

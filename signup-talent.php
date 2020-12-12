@@ -89,14 +89,14 @@
                             <div class="form-group">
                                 <label class="font-size-h6 font-weight-bolder text-dark">Full Name</label>
                                 <input class="form-control h-auto py-7 px-6 rounded-lg border-0" type="text"
-                                    name="name" autocomplete="on" />
+                                    name="name_talent" autocomplete="on" />
                             </div>
                             <!--end::Form group-->
 
                             <div class="form-group">
                                 <label class="font-size-h6 font-weight-bolder text-dark">Email</label>
                                 <input class="form-control h-auto py-7 px-6 rounded-lg border-0" type="text"
-                                    name="email" autocomplete="on" />
+                                    name="email_talent" autocomplete="on" />
                             </div>
 
                             <!--begin::Form group-->
@@ -105,7 +105,7 @@
                                     <label class="font-size-h6 font-weight-bolder text-dark pt-5">Password</label>
                                 </div>
                                 <input class="form-control h-auto py-7 px-6 rounded-lg border-0" type="password"
-                                    name="password" autocomplete="off" />
+                                    name="password_talent" autocomplete="off" />
                             </div>
                             <!--end::Form group-->
 

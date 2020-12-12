@@ -965,8 +965,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <!--end::Symbol-->
                                 <!--begin::Text-->
                                 <div class="d-flex flex-column font-weight-bold">
-                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Seminar Sukses
-                                        Bersama</a>
+                                    <a href="talent/view-tawaran?idj=<?php echo $data_tawaran_notif_cari['idj']; ?>" class="text-dark text-hover-primary mb-1 font-size-lg"><?php echo $data_tawaran_notif_cari['judul']; ?></a>
                                     <span class="text-muted">PT. Lipsum</span>
                                 </div>
                                 <!--end::Text-->
