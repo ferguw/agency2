@@ -119,7 +119,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </a>
                                 </div>
                                 <input class="form-control h-auto py-7 px-6 rounded-lg border-0" type="password"
-                                    name="password" autocomplete="off" />
+                                    name="password_client" autocomplete="off" />
                             </div>
                             <!--end::Form group-->
 

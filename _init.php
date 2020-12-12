@@ -12,7 +12,7 @@
     //Sign-in client
         if (isset($_POST['login_client'])) {
             $username = mysqli_real_escape_string($conn, $_POST['username']);
-            $password = mysqli_real_escape_string($conn, $_POST['password']);
+            $password = mysqli_real_escape_string($conn, $_POST['password_client']);
             $query_login_client = mysqli_query($conn, "SELECT * FROM client WHERE username = '$username'") or die(mysqli_error($conn));
             if (mysqli_num_rows($query_login_client) == 0) {
                 echo "<script>alert('Kami Tidak Menemukan Data Anda Hubungi Admin!'); document.location='index';</script>";
@@ -30,7 +30,7 @@
     //Sign-in talent
         if (isset($_POST['login_talent'])) {
             $username = mysqli_real_escape_string($conn, $_POST['username']);
-            $password = mysqli_real_escape_string($conn, $_POST['password']);
+            $password = mysqli_real_escape_string($conn, $_POST['password_talent']);
             $query_login_talent = mysqli_query($conn, "SELECT * FROM talent WHERE username = '$username'") or die(mysqli_error($conn));
             if (mysqli_num_rows($query_login_talent) == 0) {
                 echo "<script>alert('Kami Tidak Menemukan Data Anda Hubungi Admin!'); document.location='index';</script>";
@@ -58,12 +58,10 @@
             $password_client = password_hash($_POST['password_client'], PASSWORD_DEFAULT, $options);
             $email_client = $username_client;
 
-            $query_signup_client = "INSERT INTO client (`name`, `username`, `password`, `email`, `deskripsi`) 
-            VALUES ('$name_client', '$username_client','$password_client','$email_client','Input Deskripsi ...')"; 
-            
-            $tes_client = mysqli_query($conn, $query_signup_client);
+            $query_signup_client = mysqli_query($conn, "INSERT INTO client (`name`, `username`, `password`, `email`, `deskripsi`) 
+            VALUES ('$name_client', '$username_client','$password_client','$email_client','Input Deskripsi ...')"); 
 
-            if ($tes_client){
+            if ($query_signup_client){
                 echo "<script>alert('Berhasil Menambahkan Data, Silahkan Login');window.location='signin-client.php'</script>";
             }
             else{
@@ -79,12 +77,10 @@
             $password_talent = password_hash($_POST['password_talent'], PASSWORD_DEFAULT, $options);
             $email_talent = $username_talent;
             
-            $query_signup_talent = "INSERT INTO talent (`name`, `username`, `password`, `email`, `deskripsi`)
-            VALUES ('$name_talent','$username_talent','$password_talent','$email_talent','Input Deskripsi ...')";
+            $query_signup_client = mysqli_query($conn, "INSERT INTO talent (`name`, `username`, `password`, `email`, `deskripsi`)
+            VALUES ('$name_talent','$username_talent','$password_talent','$email_talent','Input Deskripsi ...')");
 
-            $tes_talent = mysqli_query($conn, $query_signup_talent);
-
-            if ($tes_talent){
+            if ($query_signup_client){
                 echo "<script>alert('Berhasil Menambahkan Data, Silahkan Login');window.location='signin-talent.php'</script>";
             }
             else{
@@ -122,20 +118,34 @@
         $data_view_tawaran =mysqli_fetch_assoc($query_view_tawaran);
 
     //Talent Terima / Tidak Job
-    if (isset($_POST['terima'])) {
-        $id_tawaran = $_POST['id_tawaran'];
-        mysqli_query($conn, "UPDATE tawaran SET twsts='terima' WHERE idt = '$id_tawaran'");
-        header("location:tawaran-job");
-    }elseif (isset($_POST['tolak']))  {
-        $id_tawaran = $_POST['id_tawaran'];
-        mysqli_query($conn, "UPDATE tawaran SET twsts='tolak' WHERE idt = '$id_tawaran'");
-        header("location:tawaran-job");
-    }else {
+        if (isset($_POST['terima'])) {
+            $id_tawaran = $_POST['id_tawaran'];
+            mysqli_query($conn, "UPDATE tawaran SET twsts='terima' WHERE idt = '$id_tawaran'");
+            header("location:tawaran-job");
+        }elseif (isset($_POST['tolak']))  {
+            $id_tawaran = $_POST['id_tawaran'];
+            mysqli_query($conn, "UPDATE tawaran SET twsts='tolak' WHERE idt = '$id_tawaran'");
+            header("location:tawaran-job");
+        }else {
 
-    }
+        }
+
+    //Talent Profile
+        $query_profile_talent = mysqli_query($conn, "SELECT * FROM talent WHERE idt = '$idt'");
+        $data_profile_talent = mysqli_fetch_assoc($query_profile_talent);
+
+    //Talent Ajukan Diri
+        if (isset($_POST['ajukan'])) {
+            $idj = $_GET['idj'];
+            mysqli_query($conn, "INSERT INTO `ajuan`(`idaj`, `idj`, `idt`) VALUES (NULL, '$idj', '$idt')");
+        }
+
+    
 
 
-
+    //Client List talent request job
+    $idj = $_GET['idj'];
+    $query_list_talent_on_project = mysqli_query($conn, "SELECT * FROM ajuan WHERE idj = '$idj'");
 
 
     //Client List-Job

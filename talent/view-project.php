@@ -836,7 +836,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     </div>
                                                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <div class="flex-grow-1 font-weight-bold text-dark-50 py-5 py-lg-2 mr-5">
-                                                    <a class="btn btn-md btn-danger" href="talent/view-project">Ajukan Diri</a>
+                                                    <form method="POST">
+                                                    <button class="btn btn-md btn-danger" type="submit" name="ajukan">Ajukan Diri</button>
+                                                </form>
                                                 </div>
                                             </div>
                                             <!--end: Content-->
